@@ -27,3 +27,7 @@ body {
 .navbar-inner {
 	padding-left: 25px;
 }
+
+.page-content > .buttons-row{
+	margin: 0 20px;
+}
