@@ -23,3 +23,7 @@ body {
     text-transform:uppercase;
     width:100%;
 }
+
+.navbar-inner {
+	padding-left: 25px;
+}
