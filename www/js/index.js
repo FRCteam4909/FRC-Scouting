@@ -41,4 +41,10 @@ $(".submit-button").click((event) => {
 		"team": $("#team").val(),
 		"comments": $("#comments").val()
 	});
+	
+	// Clear form
+	$("#team").val("");
+	$("#comments").val("");
+	
+	// TODO: automate form generation and submission form JSON
 });
