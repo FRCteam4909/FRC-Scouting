@@ -16,6 +16,15 @@ var intervals = {},
 		// Application Constructor
 		initialize: function () {
 			document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
+			
+			intervals.isSending = setInterval(() => {
+				dataTransfer.isSending(config, (isSending) => {
+					if(isSending)
+						$(".navbar-fixed").removeClass("theme-green").addClass("theme-red");
+					else
+						$(".navbar-fixed").removeClass("theme-red").addClass("theme-green");
+				});
+			}, config.interval);
 		},
 
 		onDeviceReady: function () {

@@ -1,4 +1,13 @@
 const dataTransfer = {
+	isSending: (config, callback) => {
+		window.plugins.simpleFile.external.list(config.sendFolder, (files) => {
+			if(files && files.length > 0)
+				callback(true);
+			else
+				callback(false);
+		}, dataTransfer.handleError);
+	},
+	
 	// Sends JSON Document to Hub
 	send: (config, message) => {
 		window.plugins.simpleFile.external.write(
