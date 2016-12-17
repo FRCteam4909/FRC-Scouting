@@ -1,4 +1,4 @@
-hooks/*
-platforms/*
-plugins/*
-config.xml
+cordova/hooks/*
+cordova/platforms/*
+cordova/plugins/*
+cordova/config.xml
