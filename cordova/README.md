@@ -1,6 +1,6 @@
 # Android Application
 
 ## Installation
-- Ensure `ADB` is Installed
+- Ensure `ADB` & `Cordova` are Installed
 - Run `./init.sh` to Initialize Cordova Application
 - Run `cordova run android -device`
