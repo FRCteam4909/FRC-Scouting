@@ -22,4 +22,4 @@ cp -R ../backend/* ~/FRC-SCOUT/lib
 
 echo "Configuring Scouting System"
 cd ~/FRC-SCOUT/lib
-# npm install
+npm install
