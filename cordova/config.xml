@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="org.team4909.scouting" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>The Bionic Eye</name>
+    <description>
+        An Android FRC Scouting App.
+    </description>
+    <author email="mflood@billericak12.com" href="http://www.team4909.org">
+        FRC Team 4909
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <platform name="android">
+        <allow-intent href="market:*" />
+    </platform>
+    <plugin name="cordova-plugin-device" spec="~1.1.4" />
+    <plugin name="com.uniclau.simplefile" spec="https://github.com/uniclau/SimpleFile.git" />
+    <engine name="android" spec="~6.0.0" />
+</widget>

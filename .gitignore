@@ -1,4 +1,2 @@
-cordova/hooks/*
 cordova/platforms/*
 cordova/plugins/*
-cordova/config.xml
