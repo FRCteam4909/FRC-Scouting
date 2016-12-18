@@ -1,5 +1,11 @@
 # Ubuntu v16.04
 
+# READ THIS
+# ======
+# This command must be run before this script can be executed
+#
+# chmod +x ./init.sh
+
 echo "THIS COMMAND MUST BE RUN FROM WITHIN THE ./backend directory"
 
 echo "Installing Node.JS & NPM"
