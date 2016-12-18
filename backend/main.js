@@ -4,6 +4,8 @@ const OBEX_utils = require('./obex_utils'),
 (function pollForNewData(){
 	const device = OBEX_utils.mount(process.argv[2], "~/FRC-SCOUT/dev");
 	
+	// READ DATA
+	
 	setTimeout(() => {
 		sleep(1);
 		

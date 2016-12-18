@@ -1,0 +1,11 @@
+{
+  "name": "frc-scouting",
+  "version": "1.0.0",
+  "dependencies": {
+    "expand-home-dir": {
+      "version": "0.0.3",
+      "from": "expand-home-dir@0.0.3",
+      "resolved": "https://registry.npmjs.org/expand-home-dir/-/expand-home-dir-0.0.3.tgz"
+    }
+  }
+}
