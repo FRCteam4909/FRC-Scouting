@@ -18,14 +18,14 @@ sudo apt-get install obexfs -y
 echo "=========="
 
 echo "Creating Mountpoint"
-mkdir -p ~/FRC-SCOUT/dev
+mkdir -p ~/FRC-Scouting/dev
 
 echo "=========="
 
 echo "Installing Scouting System"
-mkdir -p ~/FRC-SCOUT/lib
-cp -R ../backend/* ~/FRC-SCOUT/lib
+mkdir -p ~/FRC-Scouting/lib
+cp -R ../backend/* ~/FRC-Scouting/lib
 
 echo "Configuring Scouting System"
-cd ~/FRC-SCOUT/lib
+cd ~/FRC-Scouting/lib
 npm install
