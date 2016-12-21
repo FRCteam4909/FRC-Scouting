@@ -3,7 +3,9 @@ const OBEX_utils = require('./obex_utils'),
 	  
 	  config = require('./config'),
 	  
-	  expandHomeDir = require('expand-home-dir');
+	  expandHomeDir = require('expand-home-dir'),
+	  
+	  fs = require('fs');
 
 (function pollForNewData(){
 	const device = OBEX_utils.mount(process.argv[2], expandHomeDir(config.device_directory)),
@@ -13,7 +15,7 @@ const OBEX_utils = require('./obex_utils'),
 		  );
 	
 	files.forEach((file) => {
-		const newFile = fs.readFileSync(expandHomeDir(config.receive_directory) + file, { encoding: "utf8" }));
+		const newFile = fs.readFileSync(expandHomeDir(config.receive_directory) + file, { encoding: "utf8" });
 		
 		// Log File to MongoDB
 		// Send File via Web Socket to Web UI
