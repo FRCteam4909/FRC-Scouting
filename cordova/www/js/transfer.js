@@ -1,6 +1,6 @@
 const dataTransfer = {
-	isSending: (config, callback) => {
-		window.plugins.simpleFile.external.list(config.sendFolder, (files) => {
+	isSending: function(config, callback){
+		window.plugins.simpleFile.external.list(config.sendFolder, function(files){
 			if(files && files.length > 0)
 				callback(true);
 			else
@@ -9,7 +9,7 @@ const dataTransfer = {
 	},
 	
 	// Sends JSON Document to Hub
-	send: (config, message) => {
+	send: function(config, message){
 		window.plugins.simpleFile.external.write(
 			// File Path
 			config.sendFolder + dataTransfer.tempFilename(), 
@@ -30,20 +30,20 @@ const dataTransfer = {
 				check: "9dcec4e5sd7f890s"
 			}),
 			
-			() => {}, // Success Handler
+			function(){}, // Success Handler
 			dataTransfer.handleError // Error Handler
 		);
 	},
 	
 	// Error Handler
-	handleError: (err) => {
+	handleError: function(err){
 		// Log to Console
 		console.error(err);
 	},
 	
 	// Creates Random Temporary Filename
-	tempFilename: () => {
-		return 'FRCS-xxxxxxxx.json'.replace(/[x]/g, (c) => {
+	tempFilename: function(){
+		return 'FRCS-xxxxxxxx.json'.replace(/[x]/g, function(c){
 			var r = Math.random() * 16 | 0,
 				v = c == 'x' ? r : (r & 0x3 | 0x8);
 

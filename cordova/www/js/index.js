@@ -14,11 +14,11 @@ var intervals = {},
 // Cordova
 	app = {
 		// Application Constructor
-		initialize: function () {
+		initialize: function(){
 			document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
 			
-			intervals.isSending = setInterval(() => {
-				dataTransfer.isSending(config, (isSending) => {
+			intervals.isSending = setInterval(function(){
+				dataTransfer.isSending(config, function(isSending){
 					if(isSending)
 						$(".navbar-fixed").removeClass("theme-green").addClass("theme-red");
 					else
@@ -27,7 +27,7 @@ var intervals = {},
 			}, config.interval);
 		},
 
-		onDeviceReady: function () {
+		onDeviceReady: function(){
 			// deviceready Event Handler
 			// - Bind any cordova events here. Common events are:
 			//     'pause', 'resume', etc.
@@ -44,7 +44,7 @@ app.initialize();
 ///////////////////////////////////////////////////////////////////////////////
 
 // Click Handler for Submit Button
-$(".submit-button").click((event) => {
+$(".submit-button").click(function(event){
 	// Send data to Hub
 	dataTransfer.send(config, {
 		"team": $("#team").val(),

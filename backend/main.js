@@ -14,14 +14,14 @@ const OBEX_utils = require('./obex_utils'),
 			  expandHomeDir(config.receive_directory)
 		  );
 	
-	files.forEach((file) => {
+	files.forEach(function(file){
 		const newFile = fs.readFileSync(expandHomeDir(config.receive_directory) + file, { encoding: "utf8" });
 		
 		// Log File to MongoDB
 		// Send File via Web Socket to Web UI
 	});
 	
-	setTimeout(() => {
+	setTimeout(function(){
 		sleep(1);
 		
 		OBEX_utils.unmount(device);

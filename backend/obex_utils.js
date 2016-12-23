@@ -1,7 +1,7 @@
 const child_process = require('child_process');
 
 module.exports = {
-	mount: (macAddress, mountPoint) => {
+	mount: function(macAddress, mountPoint){
 		child_process.execSync(
 			"obexfs -b " + macAddress + " " + mountPoint
 		);
@@ -9,7 +9,7 @@ module.exports = {
 		return mountPoint;
 	},
 	
-	unmount: (mountPoint) => {
+	unmount: function(mountPoint){
 		child_process.execSync(
 			"fusermount -u " + mountPoint
 		);
