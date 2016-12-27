@@ -3,6 +3,8 @@ const OBEX_utils = require('./obex_utils'),
 
 	expandHomeDir = require('expand-home-dir'),
 	fs = require('fs'),
+	 
+	MongoClient = require('mongodb').MongoClient,
 
 	config = require('./config');
 
@@ -11,63 +13,71 @@ function pollForNewData(devices) {
 	if (!devices)
 		return;
 	
-	// Poll Each Device
-	devices.forEach(function (macAddr) {
-		// Mount Device and Attempt to Read Directory for New Data
-		try {
-			// Mount Device
-			const device = OBEX_utils.mount(
-				macAddr, // Device MAC Addr
-				expandHomeDir(config.device_directory) // Mountpoint
-			);
+	MongoClient.connect(config.db, function(err, db) {
+		var matchData = db.collection("matches");
+		
+		// Poll Each Device
+		devices.forEach(function (macAddr) {
+			// Mount Device and Attempt to Read Directory for New Data
+			try {
+				// Mount Device
+				const device = OBEX_utils.mount(
+					macAddr, // Device MAC Addr
+					expandHomeDir(config.device_directory) // Mountpoint
+				);
 
-			sleep(2);
-			
-			// Loop Through All Unread Files
-			fs.readdirSync(
-				expandHomeDir(config.receive_directory)
-			).forEach(function (file) {
-				try {
-					// Construct File Path
-					const filePath = expandHomeDir(config.receive_directory) + file;
+				sleep(2);
 
-					// Read File
-					const newFile = fs.readFileSync(filePath, {
-						encoding: "utf8"
-					});
+				// Loop Through All Unread Files
+				fs.readdirSync(
+					expandHomeDir(config.receive_directory)
+				).forEach(function (file) {
+					try {
+						// Construct File Path
+						const filePath = expandHomeDir(config.receive_directory) + file;
 
-					// Parse JSON Data
-					const data = JSON.parse(newFile);
+						// Read File
+						const newFile = fs.readFileSync(filePath, {
+							encoding: "utf8"
+						});
 
-					// Verify JSON Data
-					if (data.check != "9dcec4e5sd7f890s")
-						throw new Error("Error Parsing Data...");
+						// Parse JSON Data
+						const data = JSON.parse(newFile);
 
-					// Log File to MongoDB
-					console.dir(data);
-					console.log("------");
+						// Verify JSON Data
+						if (data.check != "9dcec4e5sd7f890s")
+							throw new Error("Error Parsing Data...");
 
-					// Unlink (effectively delete) Old Data
-					fs.unlinkSync(filePath);
-				} catch (e) {
-					// TODO: DUMP ERRORS TO LOG
-					console.error(e);
-				}
-			});
+						// Log File to MongoDB
+						matchData.insertOne(data);
+						
+						console.dir(data);
+						console.log("------");
 
-			sleep(2);
-			
-			// Unmount Device
-			OBEX_utils.unmount(device);
+						// Unlink (effectively delete) Old Data
+						fs.unlinkSync(filePath);
+					} catch (e) {
+						// TODO: DUMP ERRORS TO LOG
+						console.error(e);
+					}
+				});
 
-			// Wait Two Seconds
-			sleep(4);
-		} catch (e) {
-			// TODO: DUMP ERRORS TO LOG
-			console.error(e);
-		}
+				sleep(2);
+
+				// Unmount Device
+				OBEX_utils.unmount(device);
+
+				// Wait Two Seconds
+				sleep(4);
+			} catch (e) {
+				// TODO: DUMP ERRORS TO LOG
+				console.error(e);
+			}
+		});
+	  	
+		db.close();
 	});
-
+	
 	// Start Polling Again
 	// - Used setTiemout as opposed to setInterval as that could lead to overlap and file 
 	//     access could clash

@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/FRCteam4909/FRC-Scouting#readme",
   "dependencies": {
-    "expand-home-dir": "0.0.3"
+    "expand-home-dir": "0.0.3",
+    "mongodb": "^2.2.16"
   }
 }
