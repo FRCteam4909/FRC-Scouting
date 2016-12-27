@@ -51,6 +51,7 @@ function pollForNewData(devices) {
 					fs.unlinkSync(filePath);
 				} catch (e) {
 					// TODO: DUMP ERRORS TO LOG
+					console.error(e);
 				}
 			});
 
@@ -63,6 +64,7 @@ function pollForNewData(devices) {
 			sleep(4);
 		} catch (e) {
 			// TODO: DUMP ERRORS TO LOG
+			console.error(e);
 		}
 	});
 
