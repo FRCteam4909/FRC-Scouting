@@ -21,7 +21,7 @@ function pollForNewData(devices) {
 				expandHomeDir(config.device_directory) // Mountpoint
 			);
 
-			sleep(1);
+			sleep(2);
 			
 			// Loop Through All Unread Files
 			fs.readdirSync(
@@ -44,6 +44,8 @@ function pollForNewData(devices) {
 						throw new Error("Error Parsing Data...");
 
 					// Log File to MongoDB
+					console.log("DATA:" + data);
+					console.log("------");
 
 					// Unlink (effectively delete) Old Data
 					fs.unlinkSync(filePath);
@@ -52,13 +54,13 @@ function pollForNewData(devices) {
 				}
 			});
 
-			sleep(1);
+			sleep(2);
 			
 			// Unmount Device
 			OBEX_utils.unmount(device);
 
 			// Wait Two Seconds
-			sleep(2);
+			sleep(4);
 		} catch (e) {
 			// TODO: DUMP ERRORS TO LOG
 		}
@@ -69,7 +71,7 @@ function pollForNewData(devices) {
 	//     access could clash
 	setTimeout(function() {
 		pollForNewData(devices);
-	}, 1000);
+	}, 5000);
 }
 
 // Load in Device List
