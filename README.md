@@ -6,11 +6,17 @@ The aim of this project is to gather match data from the team's Android tablets 
 
 ## Backend Installation Script
 ```
+# Download GIT Repository
 cd ~
 git clone https://github.com/FRCteam4909/FRC-Scouting.git
+
+# Configure Scripts
 cd ~/FRC-Scouting/backend
 chmod +x *.sh
-sudo ./init.sh
+
+# Run Scripts
+sudo ./dependencies.sh
+./init.sh
 ```
 
 ## WIKI
