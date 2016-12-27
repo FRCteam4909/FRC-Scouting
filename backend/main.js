@@ -37,8 +37,6 @@ function pollForNewData(devices) {
 					// Log File to MongoDB
 
 					fs.unlinkSync(filePath);
-				} catch (e) {
-					// TODO: DUMP ERRORS TO LOG
 				}
 			});
 
@@ -46,8 +44,6 @@ function pollForNewData(devices) {
 
 			try {
 				OBEX_utils.unmount(device);
-			} catch (e) {
-				// TODO: DUMP ERRORS TO LOG
 			}
 
 			sleep(4);
