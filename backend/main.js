@@ -44,7 +44,7 @@ function pollForNewData(devices) {
 						throw new Error("Error Parsing Data...");
 
 					// Log File to MongoDB
-					console.log("DATA:" + data);
+					console.dir(data);
 					console.log("------");
 
 					// Unlink (effectively delete) Old Data
