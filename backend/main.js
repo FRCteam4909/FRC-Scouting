@@ -7,18 +7,24 @@ const OBEX_utils = require('./obex_utils'),
 	  
 	  fs = require('fs');
 
-(function pollForNewData(){
-	const device = OBEX_utils.mount(process.argv[2], expandHomeDir(config.device_directory)),
+function pollForNewData(macAddr){
+	const device = OBEX_utils.mount(macAddr, expandHomeDir(config.device_directory)),
 		  
 		  files = fs.readdirSync(
 			  expandHomeDir(config.receive_directory)
 		  );
 	
 	files.forEach(function(file){
-		const newFile = fs.readFileSync(expandHomeDir(config.receive_directory) + file, { encoding: "utf8" });
+		const filePath = expandHomeDir(config.receive_directory) + file,
+			  
+			  newFile = fs.readFileSync(filePath, { encoding: "utf8" });
+		
+		// ENSURE INTEGRITY
 		
 		// Log File to MongoDB
-		// Send File via Web Socket to Web UI
+		//  - Poll via API
+		
+		fs.unlinkSync(filePath);
 	});
 	
 	setTimeout(function(){
@@ -27,6 +33,14 @@ const OBEX_utils = require('./obex_utils'),
 		OBEX_utils.unmount(device);
 		
 		// Recursively Polls
-		pollForNewData();
+		pollForNewData(macAddr);
 	}, 5000);
-})();
+}
+
+const devices = [
+	process.argv[2];
+];
+
+devices.forEach(function(device){
+	pollForNewData(device);
+});
