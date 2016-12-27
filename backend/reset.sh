@@ -1,2 +1,2 @@
 # Unmount BT Disk
-fusermount -u ~/FRC-SCOUT/dev
+fusermount -u ~/FRC-Scouting/dev
