@@ -10,10 +10,8 @@ module.exports = {
 	},
 	
 	unmount: function(mountPoint){
-		try{
-			child_process.execSync(
-				"fusermount -u " + mountPoint
-			);
-		}
+		child_process.execSync(
+			"fusermount -u " + mountPoint
+		);
 	}
 };
