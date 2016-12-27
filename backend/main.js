@@ -10,7 +10,7 @@ function pollForNewData(devices) {
 	if (!devices)
 		return;
 
-	for (macAddr in devices) {
+	devices.forEach(function(macAddr){
 		// Mount Device and Attempt to Read Directory for New Data
 		try {
 			const device = OBEX_utils.mount(macAddr, expandHomeDir(config.device_directory)),
@@ -54,7 +54,7 @@ function pollForNewData(devices) {
 		} catch (e) {
 			// TODO: DUMP ERRORS TO LOG
 		}
-	}
+	});
 
 	setTimeout(function () {
 		pollForNewData(devices);
