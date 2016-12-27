@@ -21,6 +21,8 @@ function pollForNewData(devices) {
 				expandHomeDir(config.device_directory) // Mountpoint
 			);
 
+			sleep(1);
+			
 			// Loop Through All Unread Files
 			fs.readdirSync(
 				expandHomeDir(config.receive_directory)
@@ -50,6 +52,8 @@ function pollForNewData(devices) {
 				}
 			});
 
+			sleep(1);
+			
 			// Unmount Device
 			OBEX_utils.unmount(device);
 
