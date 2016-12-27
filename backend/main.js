@@ -45,6 +45,8 @@ function pollForNewData(devices) {
 
 					// Unlink (effectively delete) Old Data
 					fs.unlinkSync(filePath);
+				} catch (e) {
+					// TODO: DUMP ERRORS TO LOG
 				}
 			});
 
