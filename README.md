@@ -18,6 +18,14 @@ chmod +x *.sh
 sudo ./dependencies.sh
 ./init.sh
 ```
-
+## Backend Device Configuration (~/FRC-Scouting/config/devices.js)
+```
+  module.exports = [
+     // LIST DEVICE BLUETOOTH MAC ADDRESSES HERE
+     
+     "AA:BB:CC:DD:EE:FF",
+     "AA:BB:CC:DD:EE:FF"
+  ];
+```
 ## WIKI
 Other information can be found in the Wiki Component of this Repository.
