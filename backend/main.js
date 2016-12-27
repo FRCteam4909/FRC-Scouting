@@ -7,58 +7,67 @@ const OBEX_utils = require('./obex_utils'),
 	config = require('./config');
 
 function pollForNewData(devices) {
+	// Exit if there are no device to poll for
 	if (!devices)
 		return;
-
-	devices.forEach(function(macAddr){
+	
+	// Poll Each Device
+	devices.forEach(function (macAddr) {
 		// Mount Device and Attempt to Read Directory for New Data
 		try {
-			const device = OBEX_utils.mount(macAddr, expandHomeDir(config.device_directory)),
+			// Mount Device
+			const device = OBEX_utils.mount(
+				macAddr, // Device MAC Addr
+				expandHomeDir(config.device_directory) // Mountpoint
+			);
 
-				files = fs.readdirSync(
-					expandHomeDir(config.receive_directory)
-				);
-
-			sleep(1);
-
-			files.forEach(function (file) {
+			// Loop Through All Unread Files
+			fs.readdirSync(
+				expandHomeDir(config.receive_directory)
+			).forEach(function (file) {
 				try {
-					const filePath = expandHomeDir(config.receive_directory) + file,
+					// Construct File Path
+					const filePath = expandHomeDir(config.receive_directory) + file;
 
-						newFile = fs.readFileSync(filePath, {
-							encoding: "utf8"
-						}),
+					// Read File
+					const newFile = fs.readFileSync(filePath, {
+						encoding: "utf8"
+					});
 
-						data = JSON.parse(newFile);
+					// Parse JSON Data
+					const data = JSON.parse(newFile);
 
+					// Verify JSON Data
 					if (data.check != "9dcec4e5sd7f890s")
 						throw new Error("Error Parsing Data...");
 
 					// Log File to MongoDB
 
+					// Unlink (effectively delete) Old Data
 					fs.unlinkSync(filePath);
 				}
 			});
 
-			sleep(1);
+			// Unmount Device
+			OBEX_utils.unmount(device);
 
-			try {
-				OBEX_utils.unmount(device);
-			}
-
-			sleep(4);
+			// Wait Two Seconds
+			sleep(2);
 		} catch (e) {
 			// TODO: DUMP ERRORS TO LOG
 		}
 	});
 
-	setTimeout(function () {
+	// Start Polling Again
+	// - Used setTiemout as opposed to setInterval as that could lead to overlap and file 
+	//     access could clash
+	setTimeout(function() {
 		pollForNewData(devices);
-	}, 5000);
+	}, 1000);
 }
 
-const devices = [
-	process.argv[2]
-];
+// Load in Device List
+const devices = require("../config/devices");
 
+// Begin Polling Loop
 pollForNewData(devices);
