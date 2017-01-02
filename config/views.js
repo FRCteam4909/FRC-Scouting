@@ -1,6 +1,5 @@
 module.exports = function (mongoCollection, callback) {
-
-	collection.find().toArray(function (err, matches) {
+	mongoCollection.find().toArray(function (err, matches) {
 		callback([
 			{
 					name: "Matches",
