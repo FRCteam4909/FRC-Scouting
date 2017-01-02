@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/FRCteam4909/FRC-Scouting#readme",
   "dependencies": {
-    "mongodb": "^2.2.16"
+    "express": "^4.14.0",
+    "mongodb": "^2.2.16",
+    "serve-static": "^1.11.1"
   }
 }
