@@ -21,7 +21,7 @@ function loadData(view) {
 
 			table += `</tbody></table></div>`
 
-			$(".main").append(table);
+			$(".main").html(table);
 			
 			 $('table').DataTable({
 				"order": []
