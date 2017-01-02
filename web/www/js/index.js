@@ -1,7 +1,9 @@
-var views = [];
-
 $.get("http://127.0.0.1:1338/views", function (views) {
-	window.views = views;
+	$('.nav-sidebar').html("");
+	
+	views.forEach(function(view){
+		$(".nav-sidebar").append(`<li><a href="#" onclick="loadData('` + view.view + `')">` + view.name + `</a></li>`);
+	});
 });
 
 function loadData(view) {
