@@ -31,6 +31,12 @@ server.use(
 	}
 );
 
+server.get('/views', function (req, res, next) {
+	res.send(views.views);
+
+	next();
+});
+
 server.get('/data/:view', function (req, res, next) {
 	MongoClient.connect('mongodb://127.0.0.1:27017/FRC-Scouting', function (err, db) {
 		const collection = db.collection('matches');
