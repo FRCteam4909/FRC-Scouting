@@ -1,9 +1,5 @@
-var views = [];
-
 function loadData() {
 	$.get("http://127.0.0.1:1338/data/matches", function (views) {
-		window.views = views;
-
 		views.forEach(function (view) {
 			var table = `<div class="table-responsive"><table class="table table-striped"><thead><tr>`;
 
