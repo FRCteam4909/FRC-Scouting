@@ -8,7 +8,7 @@ function loadData() {
 			var table = `<div class="table-responsive"><table class="table table-striped"><thead><tr>`;
 
 			view.headers.forEach(function (header) {
-				table += "<th>" + header + "</th>";
+				table += "<th>" + header.text + "</th>";
 			});
 
 			table += `</tr></thead><tbody>`;
@@ -17,7 +17,7 @@ function loadData() {
 				table += `<tr>`;
 
 				view.headers.forEach(function (header) {
-					table += "<td>" + datum[header] + "</td>";
+					table += "<td>" + getDescendantProp(datum, header.value) + "</td>";
 				});
 
 				table += `</tr>`;
@@ -28,6 +28,13 @@ function loadData() {
 			$(".main").append(table);
 		});
 	});
+}
+
+/* http://stackoverflow.com/a/8052100 */
+function getDescendantProp(obj, desc) {
+    var arr = desc.split(".");
+    while(arr.length && (obj = obj[arr.shift()]));
+    return obj;
 }
 
 

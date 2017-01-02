@@ -3,7 +3,20 @@ module.exports = function (mongoCollection, callback) {
 		callback([
 			{
 					name: "Matches",
-					headers: ["team", "comments"],
+					headers: [
+						{
+							text: "Team", 
+							value: "msg.team"	
+						},
+						{
+							text: "Comments", 
+							value: "msg.comments"	
+						},
+						{
+							text: "Device", 
+							value: "sender.serial"	
+						}
+						"comments"],
 					data: matches
 			}
 		]);
