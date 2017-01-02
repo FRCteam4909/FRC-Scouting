@@ -56,3 +56,7 @@ function getDescendantProp(obj, desc) {
     while(arr.length && (obj = obj[arr.shift()]));
     return obj;
 }
+
+setInterval(function(){
+	loadData();
+}, 1000);
