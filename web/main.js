@@ -31,11 +31,11 @@ server.use(
 	}
 );
 
-server.get('/data', function (req, res, next) {
+server.get('/data/:view', function (req, res, next) {
 	MongoClient.connect('mongodb://127.0.0.1:27017/FRC-Scouting', function (err, db) {
 		const collection = db.collection('matches');
 		
-		views(collection, function (data) {
+		views[req.params.view](collection, function (data) {
 			res.send(data);
 
 			db.close();
@@ -43,7 +43,6 @@ server.get('/data', function (req, res, next) {
 			next();
 		});
 	});
-
 });
 
 server.listen(1338);

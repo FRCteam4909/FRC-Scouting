@@ -1,4 +1,4 @@
-module.exports = function (mongoCollection, callback) {
+module.exports.matches = function (mongoCollection, callback) {
 	mongoCollection.find().toArray(function (err, matches) {
 		callback([
 			{
