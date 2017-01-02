@@ -8,7 +8,7 @@ const express = require('express'),
 
 var app = express();
 
-app.use(serveStatic('www', {
+app.use(serveStatic('web/www', {
 	'index': ['index.html']
 }));
 app.listen(1337);
