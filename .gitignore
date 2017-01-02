@@ -1,3 +1,4 @@
 cordova/platforms/*
 cordova/plugins/*
 backend/node_modules/
+web/node_modules/
