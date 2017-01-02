@@ -1,3 +1,9 @@
+var views = [];
+
+$.get("http://127.0.0.1:1338/views", function (views) {
+	window.views = views;
+});
+
 function loadData(view) {
 	$.get("http://127.0.0.1:1338/data/" + view, function (views) {
 		views.forEach(function (view) {
