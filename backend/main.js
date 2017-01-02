@@ -48,8 +48,10 @@ function pollForNewData(devices) {
 						if (data.check != "9dcec4e5sd7f890s")
 							throw new Error("Error Parsing Data...");
 
+						data.msg.sender = data.sender.serial;
+						
 						// Log File to MongoDB
-						matchData.insertOne(data);
+						matchData.insertOne(data.msg);
 						
 						console.dir(data);
 						console.log("------");

@@ -6,15 +6,15 @@ module.exports = function (mongoCollection, callback) {
 					headers: [
 						{
 							text: "Team", 
-							value: "msg.team"	
+							value: "team"	
 						},
 						{
 							text: "Comments", 
-							value: "msg.comments"	
+							value: "comments"	
 						},
 						{
 							text: "Device", 
-							value: "sender.serial"	
+							value: "sender"	
 						}
 					],
 					data: matches
