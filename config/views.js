@@ -3,7 +3,7 @@ module.exports = function (mongoCollection, callback) {
 		callback([
 			{
 					name: "Matches",
-					headers: ["Team", "Comments"],
+					headers: ["team", "comments"],
 					data: matches
 			}
 		]);
