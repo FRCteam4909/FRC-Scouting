@@ -2,11 +2,16 @@ $.get("http://127.0.0.1:1338/views", function (views) {
 	$('.nav-sidebar').html("");
 	
 	views.forEach(function(view){
-		$(".nav-sidebar").append(`<li><a href="#" onclick="loadData('` + view.view + `')">` + view.name + `</a></li>`);
+		$(".nav-sidebar").append(`<li data-view="` + view.view + `"><a href="#" onclick="loadData('` + view.view + `')">` + view.name + `</a></li>`);
 	});
+	
+	loadData(views[0].view);
 });
 
 function loadData(view) {
+	$("li[data-view]").removeClass("active");
+	$("li[data-view=" + view + "]").addClass("active");
+	
 	$.get("http://127.0.0.1:1338/data/" + view, function (views) {
 		views.forEach(function (view) {
 			var table = `<div class="table-responsive"><table class="table table-striped"><thead><tr>`;
@@ -44,5 +49,3 @@ function getDescendantProp(obj, desc) {
     while(arr.length && (obj = obj[arr.shift()]));
     return obj;
 }
-
-loadData("matches");
