@@ -1,3 +1,5 @@
+var activeView = "";
+
 $.get("http://127.0.0.1:1338/views", function (views) {
 	$('.nav-sidebar').html("");
 	
@@ -9,6 +11,11 @@ $.get("http://127.0.0.1:1338/views", function (views) {
 });
 
 function loadData(view) {
+	if(!view)
+		view = activeView
+	else
+		activeView = view;
+	
 	$("li[data-view]").removeClass("active");
 	$("li[data-view=" + view + "]").addClass("active");
 	
