@@ -4,6 +4,8 @@ const express = require('express'),
 	restify = require('restify'),
 	plugins = require('restify-plugins'),
 
+	MongoClient = require('mongodb').MongoClient,
+
 	views = require('../config/views');
 
 var app = express();
@@ -30,11 +32,18 @@ server.use(
 );
 
 server.get('/data', function (req, res, next) {
-	views(null, function (data) {
-		res.send(data);
+	MongoClient.connect('mongodb://127.0.0.1:27017/FRC-Scouting', function (err, db) {
+		const collection = db.collection('matches');
 		
-		next();
+		views(collection, function (data) {
+			res.send(data);
+
+			db.close();
+
+			next();
+		});
 	});
+
 });
 
 server.listen(1338);
