@@ -27,7 +27,9 @@ function loadData() {
 
 			$(".main").append(table);
 			
-			 $('table').DataTable();
+			 $('table').DataTable({
+				"order": []
+			 });
 		});
 	});
 }
