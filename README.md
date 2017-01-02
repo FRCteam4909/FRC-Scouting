@@ -23,8 +23,8 @@ sudo ./dependencies.sh
   module.exports = [
      // LIST DEVICE BLUETOOTH MAC ADDRESSES HERE
      
-     "AA:BB:CC:DD:EE:FF",
-     "AA:BB:CC:DD:EE:FF"
+     "00:E4:22:21:13:45",
+     "00:E4:22:14:C8:29"
   ];
 ```
 ## WIKI
