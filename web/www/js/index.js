@@ -26,6 +26,8 @@ function loadData() {
 			table += `</tbody></table></div>`
 
 			$(".main").append(table);
+			
+			 $('table').DataTable();
 		});
 	});
 }
