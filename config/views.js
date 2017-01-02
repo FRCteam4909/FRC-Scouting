@@ -16,7 +16,7 @@ module.exports = function (mongoCollection, callback) {
 							text: "Device", 
 							value: "sender.serial"	
 						}
-						"comments"],
+					],
 					data: matches
 			}
 		]);
