@@ -38,24 +38,3 @@ var intervals = {},
 
 // Initalize Cordova Application
 app.initialize();
-
-///////////////////////////////////////////////////////////////////////////////
-//////////////////////                                 ////////////////////////
-//////////////////////          EVENT HANDLERS         ////////////////////////
-//////////////////////                                 ////////////////////////
-///////////////////////////////////////////////////////////////////////////////
-
-// Click Handler for Submit Button
-$(".submit-button").click(function(event){
-	var match = {};
-	
-	for(key in form.match_record){
-		match[key] = $(form.match_record[key]).val();
-	}
-	
-	// Send data to Hub
-	dataTransfer.send(config, match);
-	
-	// Reset and repopulate form
-	configureForm();
-});

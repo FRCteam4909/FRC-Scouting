@@ -47,11 +47,11 @@ Handlebars.registerHelper('compare', function(lvalue, rvalue, options) {
 var form = {};
 
 function configureForm(){
-	window.plugins.simpleFile.external.read(config.receiveFolderFolder + "form.json", function(data) {
+	window.plugins.simpleFile.external.read(config.receiveFolder + "form.json", function(data) {
 		// Parse Form JSON
 		form = JSON.parse(data);
 		
-		window.plugins.simpleFile.external.read(config.receiveFolderFolder + "template.html", function(source) {
+		window.plugins.simpleFile.external.read(config.receiveFolder + "template.html", function(source) {
 			
 			// GENERATE TEMPLATE
 			const template = Handlebars.compile(source),
@@ -59,6 +59,23 @@ function configureForm(){
 			
 			// DISPLAY FORM
 			$("#form").html(res);
+
+			// Click Handler for Submit Button
+			$(".submit-button").click(function(event){
+				var match = {};
+
+				for(key in form.match_record){
+					match[key] = $(form.match_record[key]).val();
+				}
+
+				console.dir(match);
+
+				// Send data to Hub
+				dataTransfer.send(config, match);
+
+				// Reset and repopulate form
+				configureForm();
+			});
 			
 		}, dataTransfer.handleError);
 		
