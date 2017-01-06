@@ -1,0 +1,25 @@
+<div class="list-block">
+	<ul>
+		{{#each inputs}}
+			<li>
+				<div class="item-content">
+					<div class="item-inner">
+						<div class="item-title label">{{label}}</div>
+						<div class="item-input">
+							{{#equal type "textarea"}}
+								<textarea class="resizable" id="{{id}}" placeholder="{{placeholder}}"></textarea>
+							{{/equal}}
+							{{#equal type "input"}}
+								<input type="{{input_type}}" placeholder="{{placeholder}}" id="{{id}}">
+							{{/equal}}
+						</div>
+					</div>
+				</div>
+			</li>
+		{{/each}}
+	</ul>
+</div>
+
+<p class="buttons-row">
+	<button class="submit-button button button-big button-fill color-green">{{submit_btn_text}}</button>
+</p>

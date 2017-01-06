@@ -40,50 +40,8 @@
 							<div>FRC Scout</div>
 						</div>
 					</div>
-					<div class="page-content">
-						<div class="list-block">
-							<ul>
-								<!-- Form Inputs -->
-								<li>
-									<div class="item-content">
-										<div class="item-media">
-											<!-- Person -->
-											<svg fill="#000000" height="48" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-												<path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-												<path d="M0 0h24v24H0z" fill="none" />
-											</svg>
-										</div>
-										<div class="item-inner">
-											<div class="item-title label">Team #</div>
-											<div class="item-input">
-												<input type="number" placeholder="Number" id="team">
-											</div>
-										</div>
-									</div>
-								</li>
-								<li class="align-top">
-									<div class="item-content">
-										<div class="item-media">
-											<!-- Comment Icon -->
-											<svg fill="#000000" height="48" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-												<path d="M21.99 4c0-1.1-.89-2-1.99-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4-.01-18zM18 14H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z" />
-												<path d="M0 0h24v24H0z" fill="none" />
-											</svg>
-										</div>
-										<div class="item-inner">
-											<div class="item-title label">Comments</div>
-											<div class="item-input">
-												<textarea class="resizable" id="comments"></textarea>
-											</div>
-										</div>
-									</div>
-								</li>
-							</ul>
-						</div>
-						<!-- Submit Button -->
-						<p class="buttons-row">
-							<button class="submit-button button button-big button-fill color-green">Submit</button>
-						</p>
+					<div class="page-content" id="form">
+						
 					</div>
 				</div>
 			</div>
@@ -95,13 +53,17 @@
 
 	<!-- jQuery -->
 	<script type="text/javascript" src="lib/js/jquery-3.1.1.min.js"></script>
-
+	
+	<!-- Handlebars.js -->
+	<script type="text/javascript" src="lib/js/handlebars-latest.js"></script>
+	
 	<!-- Path to Framework7 Library JS-->
 	<script type="text/javascript" src="lib/js/framework7.min.js"></script>
 
 	<!-- Base JS -->
 	<script type="text/javascript" src="js/consts.js"></script>
 	<script type="text/javascript" src="js/transfer.js"></script>
+	<script type="text/javascript" src="js/form.js"></script>
 	<script type="text/javascript" src="js/index.js"></script>
 </body>
 

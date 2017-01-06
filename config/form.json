@@ -1,18 +1,19 @@
 {
-	"pages": [
-		[
-			{ 
-				"type": "number",
-				"label": "Team #",
-				"placeholder": "Number",
-				"id": "team"
-			},
-			{ 
-				"type": "textarea",
-				"label": "Comments",
-				"id": "comments",
-				"resizable": "true"
-			}
-		]
-	]
+	"inputs": [
+		{ 
+			"type": "input",
+			"input_type": "number",
+			"label": "Team #",
+			"placeholder": "Number",
+			"id": "team"
+		},
+		{ 
+			"type": "textarea",
+			"label": "Comments",
+			"id": "comments",
+			"placeholder": "Comments go here..."
+		}
+	],
+	
+	"submit_btn_text": "Submit"
 }
