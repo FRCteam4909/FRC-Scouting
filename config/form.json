@@ -1,0 +1,18 @@
+{
+	"pages": [
+		[
+			{ 
+				"type": "number",
+				"label": "Team #",
+				"placeholder": "Number",
+				"id": "team"
+			},
+			{ 
+				"type": "textarea",
+				"label": "Comments",
+				"id": "comments",
+				"resizable": "true"
+			}
+		]
+	]
+}

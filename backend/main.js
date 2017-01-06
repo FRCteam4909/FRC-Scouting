@@ -28,6 +28,10 @@ function pollForNewData(devices) {
 
 				sleep(2);
 
+				// Write Form File
+				const form = fs.readFileSync(expandHomeDir("~/FRC-Scouting/config/form.json"));
+				fs.writeFileSync(expandHomeDir(config.send_directory) + "form.json", form);
+				
 				// Loop Through All Unread Files
 				fs.readdirSync(
 					expandHomeDir(config.receive_directory)
