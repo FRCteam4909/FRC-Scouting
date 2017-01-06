@@ -51,9 +51,6 @@ $(".submit-button").click(function(event){
 		"comments": $("#comments").val()
 	});
 	
-	// Clear form
-	$("#team").val("");
-	$("#comments").val("");
-	
-	// TODO: automate form generation and submission form JSON
+	// Reset and repopulate form
+	configureForm();
 });
