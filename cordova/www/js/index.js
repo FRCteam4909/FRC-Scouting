@@ -45,11 +45,14 @@ app.initialize();
 
 // Click Handler for Submit Button
 $(".submit-button").click(function(event){
+	var match = {};
+	
+	for(key in form.match_record){
+		match[key] = $(form.match_record[key]).val();
+	}
+	
 	// Send data to Hub
-	dataTransfer.send(config, {
-		"team": $("#team").val(),
-		"comments": $("#comments").val()
-	});
+	dataTransfer.send(config, match);
 	
 	// Reset and repopulate form
 	configureForm();

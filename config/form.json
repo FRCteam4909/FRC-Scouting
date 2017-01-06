@@ -4,8 +4,8 @@
 			"type": "input",
 			"input_type": "number",
 			"label": "Team #",
-			"placeholder": "Number",
-			"id": "team"
+			"id": "team",
+			"placeholder": "Number"
 		},
 		{ 
 			"type": "textarea",
@@ -15,5 +15,10 @@
 		}
 	],
 	
-	"submit_btn_text": "Submit"
+	"submit_btn_text": "Submit",
+	
+	"match_record": {
+		"team": "#team",
+		"comments": "#comments"
+	}
 }
