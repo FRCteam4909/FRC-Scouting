@@ -25,6 +25,8 @@ var intervals = {},
 						$(".navbar-fixed").removeClass("theme-red").addClass("theme-green");
 				});
 			}, config.interval);
+			
+			configureForm();
 		},
 
 		onDeviceReady: function(){
