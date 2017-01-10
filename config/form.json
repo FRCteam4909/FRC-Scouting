@@ -1,24 +1,96 @@
 {
-	"inputs": [
+	"auto": [
 		{ 
-			"type": "input",
-			"input_type": "number",
+			"type": "number",
 			"label": "Team #",
-			"id": "team",
-			"placeholder": "Number"
+			"id": "team"
 		},
+        { 
+			"type": "checkbox",
+			"label": "Crossed Baseline",
+			"id": "baseline"
+		},
+        { 
+			"type": "checkbox",
+			"label": "Low Goal",
+			"id": "auto-low"
+		},
+        { 
+			"type": "checkbox",
+			"label": "High Goal",
+			"id": "auto-high"
+		},
+		{ 
+			"type": "incr",
+			"label": "kPa Contribtued",
+			"id": "auto-kPa"
+		},
+		{ 
+			"type": "incr",
+			"label": "Gears Delivered to Airship",
+			"id": "auto-gears"
+		}
+	],
+    
+    "teleop": [
+        { 
+			"type": "checkbox",
+			"label": "Low Goal",
+			"id": "teleop-low"
+		},
+        { 
+			"type": "checkbox",
+			"label": "High Goal",
+			"id": "teleop-high"
+		},
+		{ 
+			"type": "incr",
+			"label": "kPa Contribtued",
+			"id": "teleop-kPa"
+		},
+		{ 
+			"type": "incr",
+			"label": "Gears Delivered to Airship",
+			"id": "teleop-gears"
+		},
+        { 
+			"type": "checkbox",
+			"label": "And a checkbox",
+			"id": "touchpad"
+		}
+	],
+    
+    "comments": [
 		{ 
 			"type": "textarea",
 			"label": "Comments",
-			"id": "comments",
-			"placeholder": "Comments go here..."
+			"id": "comments"
+		},
+        { 
+			"type": "checkbox",
+			"label": "Add to do not pick list",
+			"id": "dnp-list"
 		}
 	],
 	
 	"submit_btn_text": "Submit",
 	
 	"match_record": {
-		"team": "#team",
-		"comments": "#comments"
+		"team": "number:#team",
+        
+        "baseline": "checkbox:#baseline",
+        "auto-low": "checkbox:#auto-low",
+        "auto-high": "checkbox:#auto-high",
+        "auto-kPa": "incr:#auto-kPa",
+        "auto-gears": "incr:#auto-gears",
+        
+        "teleop-low": "checkbox:#teleop-low",
+        "teleop-high": "checkbox:#teleop-high",
+        "teleop-kPa": "incr:#teleop-kPa",
+        "teleop-gears": "incr:#teleop-gears",
+        "touchpad": "checkbox:#touchpad",
+        
+		"comments": "text:#comments",
+        "do-not-pick": "checkbox:#dnp-list"
 	}
 }
