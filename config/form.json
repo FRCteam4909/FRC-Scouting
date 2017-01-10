@@ -10,6 +10,10 @@
 			"label": "Crossed Baseline",
 			"id": "baseline"
 		},
+        {
+            "type": "divider",
+            "label": "Autonomous Shooting Style"
+        },
         { 
 			"type": "checkbox",
 			"label": "Low Goal",
@@ -25,6 +29,9 @@
 			"label": "kPa Contributed",
 			"id": "auto-kPa"
 		},
+        {
+            "type": "divider"
+        },
 		{ 
 			"type": "incr",
 			"label": "Gears Delivered to Airship",
@@ -33,6 +40,10 @@
 	],
     
     "teleop": [
+        {
+            "type": "divider",
+            "label": "Shooting Style"
+        },
         { 
 			"type": "checkbox",
 			"label": "Low Goal",
@@ -48,14 +59,21 @@
 			"label": "kPa Contributed",
 			"id": "teleop-kPa"
 		},
+        {
+            "type": "divider"
+        },
 		{ 
 			"type": "incr",
 			"label": "Gears Delivered to Airship",
 			"id": "teleop-gears"
 		},
+        {
+            "type": "divider",
+            "label": "Endgame"
+        },
         { 
 			"type": "checkbox",
-			"label": "And a checkbox",
+			"label": "Touchpad triggered",
 			"id": "touchpad"
 		}
 	],
@@ -66,6 +84,9 @@
 			"label": "Comments",
 			"id": "comments"
 		},
+        {
+            "type": "divider"
+        },
         { 
 			"type": "checkbox",
 			"label": "Add to do not pick list",
