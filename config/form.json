@@ -22,7 +22,7 @@
 		},
 		{ 
 			"type": "incr",
-			"label": "kPa Contribtued",
+			"label": "kPa Contributed",
 			"id": "auto-kPa"
 		},
 		{ 
@@ -45,7 +45,7 @@
 		},
 		{ 
 			"type": "incr",
-			"label": "kPa Contribtued",
+			"label": "kPa Contributed",
 			"id": "teleop-kPa"
 		},
 		{ 
