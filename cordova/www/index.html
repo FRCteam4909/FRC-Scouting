@@ -18,7 +18,7 @@
 				* Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
 					* Enable inline JS: add 'unsafe-inline' to default-src
 		-->
-	<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+	<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
 
 	<!-- Path to Framework7 Library CSS, Material Theme -->
 	<link rel="stylesheet" href="lib/css/framework7.material.min.css">
@@ -40,6 +40,13 @@
 							<div>FRC Scout</div>
 						</div>
 					</div>
+                    <div class="toolbar tabbar tabbar-labels">
+                        <div class="toolbar-inner">
+                            <a href="#" class="tab-link" onclick="$('.teleop, .comments').hide(); $('.auto').show();" style="margin:0; padding:0;"><span style="margin:0; padding:0;" class="tabbar-label">Autonomous</span></a>
+                            <a href="#" class="tab-link" onclick="$('.auto, .comments').hide(); $('.teleop').show();" style="margin:0; padding:0;"><span style="margin:0; padding:0;" class="tabbar-label">Teleop.</span></a>
+                            <a href="#" class="tab-link" onclick="$('.auto, .teleop').hide(); $('.comments').show();" style="margin:0; padding:0;"9><span style="margin:0; padding:0;" class="tabbar-label">Comments</span></a>
+                        </div>
+                    </div>
 					<div class="page-content" id="form">
 						
 					</div>
