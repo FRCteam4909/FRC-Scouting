@@ -12,22 +12,17 @@
 		},
         {
             "type": "divider",
-            "label": "Autonomous Shooting Style"
+            "label": "Autonomous Fuel Shooting Style"
         },
-        { 
-			"type": "checkbox",
-			"label": "Low Goal",
-			"id": "auto-low"
-		},
-        { 
-			"type": "checkbox",
-			"label": "High Goal",
-			"id": "auto-high"
+		{ 
+			"type": "incr",
+			"label": "Low Goal - kPa Contributed",
+			"id": "auto-low-kPa"
 		},
 		{ 
 			"type": "incr",
-			"label": "kPa Contributed",
-			"id": "auto-kPa"
+			"label": "High Goal - kPa Contributed",
+			"id": "auto-high-kPa"
 		},
         {
             "type": "divider"
@@ -42,22 +37,17 @@
     "teleop": [
         {
             "type": "divider",
-            "label": "Shooting Style"
+            "label": "Fuel Shooting Style"
         },
-        { 
-			"type": "checkbox",
-			"label": "Low Goal",
-			"id": "teleop-low"
-		},
-        { 
-			"type": "checkbox",
-			"label": "High Goal",
-			"id": "teleop-high"
+		{ 
+			"type": "incr",
+			"label": "Low Goal - kPa Contributed",
+			"id": "teleop-low-kPa"
 		},
 		{ 
 			"type": "incr",
-			"label": "kPa Contributed",
-			"id": "teleop-kPa"
+			"label": "High Goal - kPa Contributed",
+			"id": "teleop-high-kPa"
 		},
         {
             "type": "divider"
@@ -93,21 +83,17 @@
 			"id": "dnp-list"
 		}
 	],
-	
-	"submit_btn_text": "Submit",
-	
+    
 	"match_record": {
 		"team": "number:#team",
         
         "baseline": "checkbox:#baseline",
-        "auto-low": "checkbox:#auto-low",
-        "auto-high": "checkbox:#auto-high",
-        "auto-kPa": "incr:#auto-kPa",
+        "auto-low-kPa": "incr:#auto-low-kPa",
+        "auto-high-kPa": "incr:#auto-high-kPa",
         "auto-gears": "incr:#auto-gears",
         
-        "teleop-low": "checkbox:#teleop-low",
-        "teleop-high": "checkbox:#teleop-high",
-        "teleop-kPa": "incr:#teleop-kPa",
+        "teleop-low-kPa": "incr:#teleop-low-kPa",
+        "teleop-high-kPa": "incr:#teleop-high-kPa",
         "teleop-gears": "incr:#teleop-gears",
         "touchpad": "checkbox:#touchpad",
         
