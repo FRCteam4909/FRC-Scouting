@@ -65,7 +65,21 @@ function configureForm(){
 				var match = {};
 
 				for(key in form.match_record){
-					match[key] = $(form.match_record[key]).val();
+                    inputType = form.match_record[key].split(":")[0];
+                    inputId = form.match_record[key].split(":")[1];
+                    
+                    switch(inputType){
+                        case "number":
+                        case "text":
+                            match[key] = $(inputId).val();
+                            break;
+                        case "checkbox":
+                            match[key] = Number($(inputId)[0].checked);
+                            break;
+                        case "incr":
+                            match[key] = $(inputId).val();
+                            break;
+                    }
 				}
 
 				console.dir(match);
