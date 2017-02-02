@@ -17,7 +17,11 @@
                         <div class="item-inner">
                             <div class="item-title label">{{label}}</div>
                             <div class="item-input">
-                                    <input type="number" placeholder="{{placeholder}}" id="{{id}}">
+                                    <input type="hidden" id="{{id}}" val=0>
+                                    <p class="buttons-row">
+                                      <button class="button button-fill color-red" onclick="$('#{{id}}')[0].value = Number($('#{{id}}')[0].value) - {{amount}}">-{{amount}} {{incrLabel}}</button>
+                                      <button class="button button-fill color-green" onclick="$('#{{id}}')[0].value = Number($('#{{id}}')[0].value) + {{amount}}">+{{amount}} {{incrLabel}}</button>
+                                    </p>
                             </div>
                         </div>
                     </div>
@@ -54,7 +58,7 @@
 	<ul>
 		{{#each teleop}}
 			<li>
-                {{#equal type "number"}}
+               {{#equal type "number"}}
                     <div class="item-content">
                         <div class="item-inner">
                             <div class="item-title label">{{label}}</div>
@@ -69,7 +73,11 @@
                         <div class="item-inner">
                             <div class="item-title label">{{label}}</div>
                             <div class="item-input">
-                                    <input type="number" placeholder="{{placeholder}}" id="{{id}}">
+                                    <input type="hidden" id="{{id}}" val=0>
+                                    <p class="buttons-row">
+                                      <button class="button button-fill color-red" onclick="$('#{{id}}')[0].value = Number($('#{{id}}')[0].value) - {{amount}}">-{{amount}} {{incrLabel}}</button>
+                                      <button class="button button-fill color-green" onclick="$('#{{id}}')[0].value = Number($('#{{id}}')[0].value) + {{amount}}">+{{amount}} {{incrLabel}}</button>
+                                    </p>
                             </div>
                         </div>
                     </div>
@@ -121,7 +129,11 @@
                         <div class="item-inner">
                             <div class="item-title label">{{label}}</div>
                             <div class="item-input">
-                                    <input type="number" placeholder="{{placeholder}}" id="{{id}}">
+                                    <input type="hidden" id="{{id}}" val=0>
+                                    <p class="buttons-row">
+                                      <button class="button button-fill color-red" onclick="$('#{{id}}')[0].value = Number($('#{{id}}')[0].value) - {{amount}}">-{{amount}} {{incrLabel}}</button>
+                                      <button class="button button-fill color-green" onclick="$('#{{id}}')[0].value = Number($('#{{id}}')[0].value) + {{amount}}">+{{amount}} {{incrLabel}}</button>
+                                    </p>
                             </div>
                         </div>
                     </div>

@@ -17,12 +17,16 @@
 		{ 
 			"type": "incr",
 			"label": "Low Goal - kPa Contributed",
-			"id": "auto-low-kPa"
+			"id": "auto-low-kPa",
+            "incrLabel": "kPa",
+            "amount": 3
 		},
 		{ 
 			"type": "incr",
 			"label": "High Goal - kPa Contributed",
-			"id": "auto-high-kPa"
+			"id": "auto-high-kPa",
+            "incrLabel": "kPa",
+            "amount": 5
 		},
         {
             "type": "divider"
@@ -30,7 +34,9 @@
 		{ 
 			"type": "incr",
 			"label": "Gears Delivered to Airship",
-			"id": "auto-gears"
+			"id": "auto-gears",
+            "incrLabel": "Gear",
+            "amount": 1
 		}
 	],
     
@@ -42,12 +48,16 @@
 		{ 
 			"type": "incr",
 			"label": "Low Goal - kPa Contributed",
-			"id": "teleop-low-kPa"
+			"id": "teleop-low-kPa",
+            "incrLabel": "kPa",
+            "amount": 1
 		},
 		{ 
 			"type": "incr",
 			"label": "High Goal - kPa Contributed",
-			"id": "teleop-high-kPa"
+			"id": "teleop-high-kPa",
+            "incrLabel": "kPa",
+            "amount": 3
 		},
         {
             "type": "divider"
@@ -55,7 +65,9 @@
 		{ 
 			"type": "incr",
 			"label": "Gears Delivered to Airship",
-			"id": "teleop-gears"
+			"id": "teleop-gears",
+            "incrLabel": "Gear",
+            "amount": 1
 		},
         {
             "type": "divider",

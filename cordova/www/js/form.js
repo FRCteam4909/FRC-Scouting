@@ -77,7 +77,10 @@ function configureForm(){
                             match[key] = Number($(inputId)[0].checked);
                             break;
                         case "incr":
-                            match[key] = $(inputId).val();
+                            if($(inputId).val() > 0)
+                                match[key] = $(inputId).val();
+                            else
+                                match[key] = 0;
                             break;
                     }
 				}
