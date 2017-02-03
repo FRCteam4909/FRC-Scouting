@@ -29,18 +29,21 @@
                             </div>
                         {{/equal}}
                         {{#equal type "incr"}}
-                            <div class="item-content">
-                                <div class="item-inner">
-                                    <div class="item-title label">{{label}}</div>
-                                    <div class="item-input">
-                                            <input type="hidden" id="{{id}}" val=0>
-                                            <p class="buttons-row">
-                                              <button class="button button-fill color-red" onclick="$('#{{id}}')[0].value = Number($('#{{id}}')[0].value) - {{amount}}">-{{amount}} {{incrLabel}}</button>
-                                              <button class="button button-fill color-green" onclick="$('#{{id}}')[0].value = Number($('#{{id}}')[0].value) + {{amount}}">+{{amount}} {{incrLabel}}</button>
-                                            </p>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title label">{{label}} <span class="badge">5</span></div>
+                                            <div class="item-input">
+                                                    <input type="hidden" id="{{id}}" val=0>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
+                                </li>
+                                <li>
+                                    <a href="#" class="list-button item-link list-color-red" onclick="$('#{{id}}')[0].value = Number($('#{{id}}')[0].value) - {{amount}}">-{{amount}} {{incrLabel}}</a>              
+                                </li>
+                                <li>
+                                    <a href="#" class="list-button item-link list-color-green" onclick="$('#{{id}}')[0].value = Number($('#{{id}}')[0].value) + {{amount}}">+{{amount}} {{incrLabel}}</a>
+                                
                         {{/equal}}
                         {{#equal type "textarea"}}
                             <div class="item-content">
