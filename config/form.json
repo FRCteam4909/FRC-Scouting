@@ -15,8 +15,7 @@
                     "id": "baseline"
                 },
                 {
-                    "type": "divider",
-                    "label": "Autonomous Fuel Shooting Style"
+                    "type": "divider"
                 },
                 {
                     "type": "incr",
@@ -33,9 +32,6 @@
                     "amount": 5
                 },
                 {
-                    "type": "divider"
-                },
-                {
                     "type": "incr",
                     "label": "Gears Delivered to Airship",
                     "id": "auto-gears",
@@ -49,10 +45,6 @@
             "id": "teleop",
             "fields": [
                 {
-                    "type": "divider",
-                    "label": "Fuel Shooting Style"
-                },
-                {
                     "type": "incr",
                     "label": "Low Goal - kPa Contributed",
                     "id": "teleop-low-kPa",
@@ -65,9 +57,6 @@
                     "id": "teleop-high-kPa",
                     "incrLabel": "kPa",
                     "amount": 3
-                },
-                {
-                    "type": "divider"
                 },
                 {
                     "type": "incr",
