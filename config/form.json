@@ -1,115 +1,127 @@
 {
-	"auto": [
-		{ 
-			"type": "number",
-			"label": "Team #",
-			"id": "team"
-		},
-        { 
-			"type": "checkbox",
-			"label": "Crossed Baseline",
-			"id": "baseline"
-		},
+    "views": [
         {
-            "type": "divider",
-            "label": "Autonomous Fuel Shooting Style"
+            "name": "Autonomous",
+            "id": "auto",
+            "fields": [
+                {
+                    "type": "number",
+                    "label": "Team #",
+                    "id": "team"
+                },
+                {
+                    "type": "checkbox",
+                    "label": "Crossed Baseline",
+                    "id": "baseline"
+                },
+                {
+                    "type": "divider",
+                    "label": "Autonomous Fuel Shooting Style"
+                },
+                {
+                    "type": "incr",
+                    "label": "Low Goal - kPa Contributed",
+                    "id": "auto-low-kPa",
+                    "incrLabel": "kPa",
+                    "amount": 3
+                },
+                {
+                    "type": "incr",
+                    "label": "High Goal - kPa Contributed",
+                    "id": "auto-high-kPa",
+                    "incrLabel": "kPa",
+                    "amount": 5
+                },
+                {
+                    "type": "divider"
+                },
+                {
+                    "type": "incr",
+                    "label": "Gears Delivered to Airship",
+                    "id": "auto-gears",
+                    "incrLabel": "Gear",
+                    "amount": 1
+                }
+            ]
         },
-		{ 
-			"type": "incr",
-			"label": "Low Goal - kPa Contributed",
-			"id": "auto-low-kPa",
-            "incrLabel": "kPa",
-            "amount": 3
-		},
-		{ 
-			"type": "incr",
-			"label": "High Goal - kPa Contributed",
-			"id": "auto-high-kPa",
-            "incrLabel": "kPa",
-            "amount": 5
-		},
         {
-            "type": "divider"
+            "name": "Teleop.",
+            "id": "teleop",
+            "fields": [
+                {
+                    "type": "divider",
+                    "label": "Fuel Shooting Style"
+                },
+                {
+                    "type": "incr",
+                    "label": "Low Goal - kPa Contributed",
+                    "id": "teleop-low-kPa",
+                    "incrLabel": "kPa",
+                    "amount": 1
+                },
+                {
+                    "type": "incr",
+                    "label": "High Goal - kPa Contributed",
+                    "id": "teleop-high-kPa",
+                    "incrLabel": "kPa",
+                    "amount": 3
+                },
+                {
+                    "type": "divider"
+                },
+                {
+                    "type": "incr",
+                    "label": "Gears Delivered to Airship",
+                    "id": "teleop-gears",
+                    "incrLabel": "Gear",
+                    "amount": 1
+                }
+            ]
         },
-		{ 
-			"type": "incr",
-			"label": "Gears Delivered to Airship",
-			"id": "auto-gears",
-            "incrLabel": "Gear",
-            "amount": 1
-		}
-	],
-    
-    "teleop": [
         {
-            "type": "divider",
-            "label": "Fuel Shooting Style"
-        },
-		{ 
-			"type": "incr",
-			"label": "Low Goal - kPa Contributed",
-			"id": "teleop-low-kPa",
-            "incrLabel": "kPa",
-            "amount": 1
-		},
-		{ 
-			"type": "incr",
-			"label": "High Goal - kPa Contributed",
-			"id": "teleop-high-kPa",
-            "incrLabel": "kPa",
-            "amount": 3
-		},
-        {
-            "type": "divider"
-        },
-		{ 
-			"type": "incr",
-			"label": "Gears Delivered to Airship",
-			"id": "teleop-gears",
-            "incrLabel": "Gear",
-            "amount": 1
-		},
-        {
-            "type": "divider",
-            "label": "Endgame"
-        },
-        { 
-			"type": "checkbox",
-			"label": "Touchpad triggered",
-			"id": "touchpad"
-		}
-	],
-    
-    "comments": [
-		{ 
-			"type": "textarea",
-			"label": "Comments",
-			"id": "comments"
-		},
-        {
-            "type": "divider"
-        },
-        { 
-			"type": "checkbox",
-			"label": "Add to do not pick list",
-			"id": "dnp-list"
-		}
-	],
-    
-	"match_record": {
-		"team": "number:#team",
-        
+            "name": "Endgame",
+            "id": "endgame",
+            "finalView": "true",
+            "fields": [
+                {
+                    "type": "checkbox",
+                    "label": "Touchpad triggered",
+                    "id": "touchpad"
+                },
+                {
+                    "type": "divider"
+                },
+                {
+                    "type": "textarea",
+                    "label": "Comments",
+                    "id": "comments"
+                },
+                {
+                    "type": "divider"
+                },
+                {
+                    "type": "checkbox",
+                    "label": "Add to do not pick list",
+                    "id": "dnp-list"
+                }
+            ]
+        }
+    ],
+
+    "match_record": {
+        "team": "number:#team",
+
         "baseline": "checkbox:#baseline",
         "auto-low-kPa": "incr:#auto-low-kPa",
         "auto-high-kPa": "incr:#auto-high-kPa",
         "auto-gears": "incr:#auto-gears",
-        
+
         "teleop-low-kPa": "incr:#teleop-low-kPa",
         "teleop-high-kPa": "incr:#teleop-high-kPa",
         "teleop-gears": "incr:#teleop-gears",
         "touchpad": "checkbox:#touchpad",
-        
-		"comments": "text:#comments",
+
+        "comments": "text:#comments",
         "do-not-pick": "checkbox:#dnp-list"
-	}
+    }
 }

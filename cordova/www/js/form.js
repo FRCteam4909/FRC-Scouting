@@ -58,7 +58,9 @@ function configureForm(){
 				  res = template(form);
 			
 			// DISPLAY FORM
-			$("#form").html(res);
+			$("#mainPage").html(res);
+            
+            $("." + form.views[0].id).show();
 
 			// Click Handler for Submit Button
 			$(".submit-button").click(function(event){
