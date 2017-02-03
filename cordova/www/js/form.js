@@ -51,7 +51,7 @@ function configureForm(){
 		// Parse Form JSON
 		form = JSON.parse(data);
 		
-		window.plugins.simpleFile.external.read(config.receiveFolder + "template.html", function(source) {
+		window.plugins.simpleFile.external.read(config.receiveFolder + "form-template.html", function(source) {
 			
 			// GENERATE TEMPLATE
 			const template = Handlebars.compile(source),
