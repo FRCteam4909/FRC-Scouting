@@ -87,7 +87,7 @@ module.exports= {
                   }
               }
           }
-        ]).toArray(function(err, docs) {
+        ]).toArray(function(err, matches) {
             callback([
                 {
                         name: "Matches",
