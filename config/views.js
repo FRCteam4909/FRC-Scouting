@@ -32,7 +32,7 @@ module.exports= {
                                 {
                                     text: "Auto. Gears Placed",
                                     value: "auto-gears"
-                                },,
+                                },
                                 {
                                     text: "Teleop. Low Goal kPa",
                                     value: "teleop-low-kPa"
