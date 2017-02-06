@@ -71,16 +71,18 @@ function configureForm(){
                     inputId = form.match_record[key].split(":")[1];
                     
                     switch(inputType){
-                        case "number":
                         case "text":
                             match[key] = $(inputId).val();
+                            break;
+                        case "number":
+                            match[key] = Number($(inputId).val());
                             break;
                         case "checkbox":
                             match[key] = Number($(inputId)[0].checked);
                             break;
                         case "incr":
                             if($(inputId).val() > 0)
-                                match[key] = $(inputId).val();
+                                match[key] = Number($(inputId).val());
                             else
                                 match[key] = 0;
                             break;
