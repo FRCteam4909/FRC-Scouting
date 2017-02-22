@@ -61,7 +61,6 @@
                     "label": "Low Goal - kPa Contributed",
                     "id": "teleop-low-kPa",
                     "incrLabel": "kPa",
-                    "amount": 1
                 },
                 {
                     "type": "incr",
