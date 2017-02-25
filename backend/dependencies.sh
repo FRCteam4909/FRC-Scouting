@@ -11,3 +11,5 @@ echo "deb [ arch=amd64,arm64 ] http://repo.mongodb.org/apt/ubuntu xenial/mongodb
 sudo apt-get update
 sudo apt-get install -y mongodb-org
 sudo service mongod start
+
+sudo mkdir -p /data/db

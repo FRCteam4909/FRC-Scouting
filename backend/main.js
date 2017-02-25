@@ -35,54 +35,54 @@ function pollForNewData(devices) {
                 OBEX_utils.mkdirp(
 					expandHomeDir(config.receive_directory)
 				);
+                try {
+                    // Write Form File
+                    const form = fs.readFileSync(expandHomeDir("~/FRC-Scouting/config/form.json"));
+                    fs.writeFileSync(expandHomeDir(config.send_directory) + "form.json", form);
 
-				// Write Form File
-				const form = fs.readFileSync(expandHomeDir("~/FRC-Scouting/config/form.json"));
-				fs.writeFileSync(expandHomeDir(config.send_directory) + "form.json", form);
-				
-				// Write Template File
-				const template = fs.readFileSync(expandHomeDir("~/FRC-Scouting/backend/form-template.html"));
-				fs.writeFileSync(expandHomeDir(config.send_directory) + "form-template.html", template);
-				// Write Template File
-				const pageTemplate = fs.readFileSync(expandHomeDir("~/FRC-Scouting/backend/page-template.html"));
-				fs.writeFileSync(expandHomeDir(config.send_directory) + "page-template.html", pageTemplate);
-				
-				// Loop Through All Unread Files
-				fs.readdirSync(
-					expandHomeDir(config.receive_directory)
-				).forEach(function (file) {
-					try {
-						// Construct File Path
-						const filePath = expandHomeDir(config.receive_directory) + file;
+                    // Write Template File
+                    const template = fs.readFileSync(expandHomeDir("~/FRC-Scouting/backend/form-template.html"));
+                    fs.writeFileSync(expandHomeDir(config.send_directory) + "form-template.html", template);
+                    // Write Template File
+                    const pageTemplate = fs.readFileSync(expandHomeDir("~/FRC-Scouting/backend/page-template.html"));
+                    fs.writeFileSync(expandHomeDir(config.send_directory) + "page-template.html", pageTemplate);
 
-						// Read File
-						const newFile = fs.readFileSync(filePath, {
-							encoding: "utf8"
-						});
+                    // Loop Through All Unread Files
+                    fs.readdirSync(
+                        expandHomeDir(config.receive_directory)
+                    ).forEach(function (file) {
+                        try {
+                            // Construct File Path
+                            const filePath = expandHomeDir(config.receive_directory) + file;
 
-						// Parse JSON Data
-						const data = JSON.parse(newFile);
+                            // Read File
+                            const newFile = fs.readFileSync(filePath, {
+                                encoding: "utf8"
+                            });
 
-						// Verify JSON Data
-						if (data.check != "9dcec4e5sd7f890s")
-							throw new Error("Error Parsing Data...");
+                            // Parse JSON Data
+                            const data = JSON.parse(newFile);
 
-						data.msg.sender = data.sender.serial;
-						
-						// Log File to MongoDB
-						matchData.insertOne(data.msg);
-						
-						console.dir(data);
-						console.log("------");
+                            // Verify JSON Data
+                            if (data.check != "9dcec4e5sd7f890s")
+                                throw new Error("Error Parsing Data...");
 
-						// Unlink (effectively delete) Old Data
-						fs.unlinkSync(filePath);
-					} catch (e) {
-						// TODO: DUMP ERRORS TO LOG
-						console.error(e);
-					}
-				});
+                            data.msg.sender = data.sender.serial;
 
+                            // Log File to MongoDB
+                            matchData.insertOne(data.msg);
+
+                            console.dir(data);
+                            console.log("------");
+
+                            // Unlink (effectively delete) Old Data
+                            fs.unlinkSync(filePath);
+                        } catch (e) {
+                            // TODO: DUMP ERRORS TO LOG
+                            console.error(e);
+                        }
+                    });
+                } catch(e){}
 				sleep(2);
 
 				// Unmount Device
