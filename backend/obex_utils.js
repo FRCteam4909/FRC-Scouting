@@ -13,8 +13,6 @@ module.exports = {
 		child_process.execSync(
 			"mkdir -p " + dir
 		);
-		
-		return mountPoint;
 	},
 	
 	unmount: function(mountPoint){
