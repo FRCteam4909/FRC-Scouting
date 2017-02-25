@@ -8,10 +8,18 @@ module.exports = {
 		
 		return mountPoint;
 	},
+    
+    mkdirp: function(dir){
+		child_process.execSync(
+			"mkdir -p " + dir
+		);
+		
+		return mountPoint;
+	},
 	
 	unmount: function(mountPoint){
 		child_process.execSync(
 			"fusermount -u " + mountPoint
 		);
 	}
-};
+}

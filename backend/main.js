@@ -25,8 +25,16 @@ function pollForNewData(devices) {
 					macAddr, // Device MAC Addr
 					expandHomeDir(config.device_directory) // Mountpoint
 				);
-
+                
 				sleep(2);
+                
+				OBEX_utils.mkdirp(
+					expandHomeDir(config.send_directory)
+				);
+                
+                OBEX_utils.mkdirp(
+					expandHomeDir(config.receive_directory)
+				);
 
 				// Write Form File
 				const form = fs.readFileSync(expandHomeDir("~/FRC-Scouting/config/form.json"));
