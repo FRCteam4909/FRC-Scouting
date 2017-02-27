@@ -33,7 +33,9 @@ function loadData(view) {
 				table += `<tr>`;
 
 				view.headers.forEach(function (header) {
-					table += "<td>" + getDescendantProp(datum, header.value) + "</td>";
+					var val = getDescendantProp(datum, header.value);
+					
+					table += "<td>" + renderTypes(val) + "</td>";
 				});
 
 				table += `</tr>`;
@@ -55,4 +57,14 @@ function getDescendantProp(obj, desc) {
     var arr = desc.split(".");
     while(arr.length && (obj = obj[arr.shift()]));
     return obj;
+}
+
+/* http://stackoverflow.com/questions/11832914/round-to-at-most-2-decimal-places */
+function renderTypes(num) {
+	const numCast = +(Math.round(num + "e+2")  + "e-2");
+	
+	if(!Number.isNaN(numCast))
+		return numCast;
+	else
+		return num;
 }
