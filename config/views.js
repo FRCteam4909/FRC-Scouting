@@ -1,10 +1,35 @@
-module.exports= {
+module.exports = {
 	views: [{
-		"name": "Team Averages",
-		"view": "teamAverages"
+		"name": "Team Profile",
+		"views": [
+            {
+                "name": "teamAverages",
+                "disableInfo": true,
+                "disablePaging": true
+            },
+            {
+                "name": "teamConsistency",
+                "disableInfo": true,
+                "disablePaging": true
+            },
+            {
+                "name": "matches"
+            }
+        ]
 	},{
-		"name": "Raw Match Data",
-		"view": "matches"
+		"name": "Team Averages",
+		"views": [
+            {
+                "name": "teamAverages"
+            }
+        ]
+	},{
+		"name": "Team Consistencies",
+		"views": [
+            {
+                "name": "teamConsistency"
+            }
+        ]
 	}],
 	
 	matches: function (mongoCollection, callback) {
@@ -14,7 +39,7 @@ module.exports= {
 			.toArray(function (err, matches) {
 				callback([
 					{
-							name: "Matches",
+							name: "Team Matches",
 							headers: [
                                 {
                                     text: "Team", 
@@ -93,7 +118,82 @@ module.exports= {
         ]).toArray(function(err, matches) {
             callback([
                 {
-                        name: "Matches",
+                        name: "Team Averages",
+                        headers: [
+                            {
+                                text: "Team", 
+                                value: "_id"	
+                            },
+                            {
+                                text: "Crossed Baseline", 
+                                value: "baseline"	
+                            },
+                            {
+                                text: "Auto. Low Goal kPa",
+                                value: "auto-low-kPa"
+                            },
+                            {
+                                text: "Auto. High Goal kPa",
+                                value: "auto-high-kPa"
+                            },
+                            {
+                                text: "Auto. Gears Placed",
+                                value: "auto-gears"
+                            },
+                            {
+                                text: "Teleop. Low Goal kPa",
+                                value: "teleop-low-kPa"
+                            },
+                            {
+                                text: "Teleop. High Goal kPa",
+                                value: "teleop-high-kPa"
+                            },
+                            {
+                                text: "Teleop. Gears Placed",
+                                value: "teleop-gears"
+                            },
+                            {
+                                text: "Pressed Touchpad",
+                                value: "touchpad"
+                            },
+                            {
+                                text: "Do Not Pick", 
+                                value: "do-not-pick"	
+                            }
+                        ],
+                        data: matches
+                }
+            ]);
+            
+            db.close();
+        });
+	},
+    
+    teamConsistency: function (mongoCollection, callback) {
+        mongoCollection.aggregate([
+          {
+              $group: {
+                  _id: '$team',
+                  
+                  "baseline": { $stdDevPop: '$baseline' },
+                  
+                  "auto-low-kPa": { $stdDevPop: '$auto-low-kPa' },
+                  "auto-high-kPa": { $stdDevPop: '$auto-high-kPa' },
+                  "auto-gears": { $stdDevPop: '$auto-gears' },
+                  
+                  "teleop-low-kPa": { $stdDevPop: '$teleop-low-kPa' },
+                  "teleop-high-kPa": { $stdDevPop: '$teleop-high-kPa' },
+                  "teleop-gears": { $stdDevPop: '$teleop-gears' },
+                  
+                  "touchpad": { $stdDevPop: '$touchpad' },
+                  
+                  "do-not-pick": { $stdDevPop: '$do-not-pick' }
+              }
+          }
+        ]).toArray(function(err, matches) {
+            callback([
+                {
+                        name: "Team Consistency",
                         headers: [
                             {
                                 text: "Team", 

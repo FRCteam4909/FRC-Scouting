@@ -1,56 +1,86 @@
-var activeView = "";
-
-$.get("http://127.0.0.1:1338/views", function (views) {
-	$('.nav-sidebar').html("");
-	
-	views.forEach(function(view){
-		$(".nav-sidebar").append(`<li data-view="` + view.view + `"><a href="#" onclick="loadData('` + view.view + `')">` + view.name + `</a></li>`);
-	});
-	
-	loadData(views[0].view);
+$.ajaxSetup({
+  async: false
 });
 
-function loadData(view) {
-	if(!view)
-		view = activeView
+var activeView = 0,
+    loadedViews = [];
+
+$.get("http://127.0.0.1:1338/views", function (ajaxViews) {
+    loadedViews = ajaxViews;
+    
+	$('.nav-sidebar').html("");
+	
+	loadedViews.forEach(function(view, index){
+		$(".nav-sidebar").append(`<li data-view="` + index + `"><a href="#" onclick="loadData('` + index + `')">` + view.name + `</a></li>`);
+	});
+	
+    loadData(0);
+});
+
+function loadData(index) {
+    $('#findTeamNumber').val("");
+    
+	if(!index)
+		index = activeView
 	else
-		activeView = view;
+		activeView = index;
 	
 	$("li[data-view]").removeClass("active");
-	$("li[data-view=" + view + "]").addClass("active");
+	$("li[data-view=" + index + "]").addClass("active");
 	
-	$.get("http://127.0.0.1:1338/data/" + view, function (views) {
-		views.forEach(function (view) {
-			var table = `<div class="table-responsive"><table class="table table-striped"><thead><tr>`;
+    
+    $(".main").html("");
+    
+	loadedViews[index].views.forEach(function(rootView){
+        $.get("http://127.0.0.1:1338/data/" + rootView.name, function (views) {
+            views.forEach(function (view) {
+                var table = `<h3>` + view.name + `</h3>`;
+                table += `<div class="table-responsive"><table class="table table-striped" id="` + rootView.name + `"><thead><tr>`;
 
-			view.headers.forEach(function (header) {
-				table += "<th>" + header.text + "</th>";
-			});
+                view.headers.forEach(function (header) {
+                    table += "<th>" + header.text + "</th>";
+                });
 
-			table += `</tr></thead><tbody>`;
+                table += `</tr></thead><tbody>`;
 
-			view.data.forEach(function (datum) {
-				table += `<tr>`;
+                view.data.forEach(function (datum) {
+                    table += `<tr>`;
 
-				view.headers.forEach(function (header) {
-					var val = getDescendantProp(datum, header.value);
-					
-					table += "<td>" + renderTypes(val) + "</td>";
-				});
+                    view.headers.forEach(function (header) {
+                        var val = getDescendantProp(datum, header.value);
 
-				table += `</tr>`;
-			});
+                        table += "<td>" + renderTypes(val) + "</td>";
+                    });
 
-			table += `</tbody></table></div>`
+                    table += `</tr>`;
+                });
 
-			$(".main").html(table);
-			
-			 $('table').DataTable({
-				"order": []
-			 });
-		});
-	});
+                table += `</tbody></table></div><hr>`
+
+                $(".main").append(table);
+
+                 $('table#' + rootView.name).DataTable({
+                    "paging": rootView.disablePaging ? !rootView.disablePaging : true,
+                    "searching": rootView.disableSearching ? !rootView.disableSearching : true,
+                    "info": rootView.disableInfo ? !rootView.disableInfo : true,
+                     "search": {
+                        "regex": true
+                      },
+                    "lengthMenu": [ [25, 50, 100, -1], [25, 50, 100, "All"] ],
+                    "order": [],
+                     "columnDefs": [
+                        { "searchable": true, "targets": 0 },
+                        { "searchable": false, "targets": "_all" },
+                      ]
+                 });
+            });
+        });
+    });
 }
+
+$('#findTeamNumber').bind('input', function() {
+    $.fn.dataTable.tables( { api: true } ).search("^"+$(this).val()+" $").draw()
+});
 
 /* http://stackoverflow.com/a/8052100 */
 function getDescendantProp(obj, desc) {
