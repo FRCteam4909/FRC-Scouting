@@ -9,7 +9,7 @@
             {{#equal type "incr"}}
                         <div class="item-content">
                             <div class="item-inner">
-                                <div class="item-title label">{{label}} <span class="badge" id="{{id}}-badge">5</span></div>
+                                <div class="item-title label">{{label}} <span class="badge" id="{{id}}-badge">0</span></div>
                                 <div class="item-input">
                                         <input type="hidden" id="{{id}}" val=0>
                                 </div>
@@ -17,10 +17,10 @@
                         </div>
                     </li>
                     <li>
-                        <a href="#" class="list-button item-link list-color-green" onclick="$('#{{id}}')[0].value = Number($('#{{id}}')[0].value) + {{amount}}">+{{amount}} {{{incrLabel}}}</a>
+                        <a href="#" class="list-button item-link list-color-green" onclick="$('#{{id}}')[0].value = Number($('#{{id}}')[0].value) + {{amount}}; $('#{{id}}-badge')[0].value = $('#{{id}}')[0].value">+{{amount}} {{{incrLabel}}}</a>
                     </li>
                     <li>
-                        <a href="#" class="list-button item-link list-color-red" onclick="$('#{{id}}')[0].value = Number($('#{{id}}')[0].value) - 1">-1 {{{incrLabel}}}</a>              
+                        <a href="#" class="list-button item-link list-color-red" onclick="$('#{{id}}')[0].value = Number($('#{{id}}')[0].value) - 1; $('#{{id}}-badge')[0].value = $('#{{id}}')[0].value">-1 {{{incrLabel}}}</a>              
                         
             {{/equal}}
             {{#equal type "textarea"}}
