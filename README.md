@@ -14,7 +14,7 @@ cd ~
 git clone https://github.com/FRCteam4909/FRC-Scouting.git
 
 # Configure Scripts
-cd ~/FRC-Scouting/backend
+cd ~/FRC-Scouting/script
 chmod +x *.sh
 
 # Run Scripts
@@ -34,7 +34,7 @@ sudo ./dependencies.sh
 
 ## Running Server
 ```
-cd ~/FRC-Scouting/
+cd ~/FRC-Scouting/lib
 nodejs ./main.js --event [EVENT_KEY GOES HERE]
 ```
 ## WIKI
