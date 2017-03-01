@@ -14,7 +14,7 @@ cd ~
 git clone https://github.com/FRCteam4909/FRC-Scouting.git
 
 # Configure Scripts
-cd ~/FRC-Scouting/script
+cd ~/FRC-Scouting/scripts
 chmod +x *.sh
 
 # Run Scripts
