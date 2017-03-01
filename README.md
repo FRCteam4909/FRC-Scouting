@@ -75,6 +75,3 @@ Please create a GitHub issue for any bugs or feature requests.
 
 ## WIKI
 Other information can be found in the Wiki Component of this Repository.
-
-## Customization
-There are two other files in the config directory, the app configuration and data analysis configuration. These need not be touched if you are using the standard configuration from the team.
