@@ -25,6 +25,10 @@ sudo ./dependencies.sh
 ```
 ## Backend Device Configuration (~/FRC-Scouting/config/devices.js)
 ```
+nano ~/FRC-Scouting/config/devices.js
+```
+### The File will Look Like This:
+```
   module.exports = [
      // LIST DEVICE BLUETOOTH MAC ADDRESSES HERE
      
@@ -32,6 +36,9 @@ sudo ./dependencies.sh
      "00:E4:22:14:C8:29"
   ];
 ```
+
+## Other Configuration
+There are two other files in the config directory, the app configuration and data analysis configuration. These need not be touched if you are using the standard configuration from the team.
 
 ## Running Server
 ```
