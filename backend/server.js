@@ -115,7 +115,7 @@ const devices = require("../config/devices");
 
 module.exports = function(newEventKey){
     eventKey = newEventKey;
-    api = require('./utils/api')(eventKey);
+    api = (require('./utils/api'))(eventKey);
     
     // Begin Polling Loop
     pollForNewData(devices);
