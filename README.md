@@ -9,7 +9,7 @@ The aim of this project is to gather match data from the team's Android tablets 
 - [Bluetooth v4.x Adapter, if not built-in](http://a.co/fmJrtQR)
 
 ## Installation
-Prior to installing The Green Alliance - Server, Ubuntu Desktop must be installed on the device being used as a server. The device also requires a Bluetooth adapter. 
+Prior to installing The Green Alliance - Server, Ubuntu Desktop must be installed on the device being used as a server. The Green Alliance - Server also requires a Bluetooth adapter to be present. 
 
 ## Installation Script
 This can be pasted in an Ubuntu Terminal and the majority of the server installation will be complete.
@@ -48,6 +48,9 @@ The file should look Like this, all the devices MAC addresses can be found under
      "00:E4:22:14:C8:43"
   ];
 ```
+
+## Device Pairing
+Each tablet intended for scouting use must be paired with the scouting server laptop. This can be done in the OS settings Bluetooth pane.
 
 ## Running Server
 ```
