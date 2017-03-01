@@ -1,4 +1,4 @@
-# FRC-Scouting
+# The Green Alliance - Server
 
 Team 4909's 2017 Scouting System.
 
