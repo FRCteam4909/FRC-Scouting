@@ -28,7 +28,7 @@ The device config. file can edited with the following command:
 ```
 nano ~/FRC-Scouting/config/devices.js
 ```
-The File should look Like this:
+The file should look Like this, all the devices MAC addresses can be found under the devices' Bluetooth settings:
 ```
   module.exports = [
      // LIST DEVICE BLUETOOTH MAC ADDRESSES HERE
