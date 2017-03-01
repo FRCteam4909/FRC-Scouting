@@ -31,5 +31,11 @@ sudo ./dependencies.sh
      "00:E4:22:14:C8:29"
   ];
 ```
+
+## Running Server
+```
+cd ~/FRC-Scouting/
+nodejs ./main.js -e [EVENT_KEY GOES HERE]
+```
 ## WIKI
 Other information can be found in the Wiki Component of this Repository.
