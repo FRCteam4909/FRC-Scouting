@@ -5,6 +5,7 @@ const restify = require('restify'),
       
       views = require('../../config/views');
 
+// TODO: filter event key
 
 module.exports = function (eventKey){
     const server = restify.createServer({
