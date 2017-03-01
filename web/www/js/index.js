@@ -27,7 +27,6 @@ function loadData(index) {
 	
 	$("li[data-view]").removeClass("active");
 	$("li[data-view=" + index + "]").addClass("active");
-	
     
     $(".main").html("");
     
@@ -66,7 +65,7 @@ function loadData(index) {
                      "search": {
                         "regex": true
                       },
-                    "lengthMenu": [ [25, 50, 100, -1], [25, 50, 100, "All"] ],
+                    "lengthMenu": rootView.lengthMenu ? rootView.lengthMenu : null,
                     "order": [],
                      "columnDefs": [
                         { "searchable": true, "targets": 0 },
@@ -79,7 +78,16 @@ function loadData(index) {
 }
 
 $('#findTeamNumber').bind('input', function() {
-    $.fn.dataTable.tables( { api: true } ).search("^"+$(this).val()+" $").draw()
+    if($(this).val() == "")
+        $.fn.dataTable.tables( { api: true } )
+            .columns(0)
+                .search("")
+                .draw();
+    else
+        $.fn.dataTable.tables( { api: true } )
+            .columns(0)
+                .search("^" + $(this).val() + "$", true, false, true)
+                .draw();
 });
 
 /* http://stackoverflow.com/a/8052100 */

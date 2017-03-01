@@ -13,21 +13,28 @@ module.exports = {
                 "disablePaging": true
             },
             {
-                "name": "matches"
+                "name": "matches",
+                "lengthMenu": [ [10, 25, 50, 100, -1], [10, 25, 50, 100, "All"] ]
+            },
+            {
+                "name": "comments",
+                "lengthMenu": [ [10, 25, 50, 100, -1], [10, 25, 50, 100, "All"] ]
             }
         ]
 	},{
 		"name": "Team Averages",
 		"views": [
             {
-                "name": "teamAverages"
+                "name": "teamAverages",
+                "lengthMenu": [ [25, 50, 100, -1], [25, 50, 100, "All"] ]
             }
         ]
 	},{
 		"name": "Team Consistencies",
 		"views": [
             {
-                "name": "teamConsistency"
+                "name": "teamConsistency",
+                "lengthMenu": [ [25, 50, 100, -1], [25, 50, 100, "All"] ]
             }
         ]
 	}],
@@ -84,6 +91,32 @@ module.exports = {
                                 {
                                     text: "Do Not Pick", 
                                     value: "do-not-pick"	
+                                }
+                            ],
+							data: matches
+					}
+				]);
+
+				db.close();
+			});
+	},
+    
+    comments: function (mongoCollection, callback) {
+		mongoCollection
+			.find()
+			.sort({"_id": -1})
+			.toArray(function (err, matches) {
+				callback([
+					{
+							name: "Team Comments",
+							headers: [
+                                {
+                                    text: "Team", 
+                                    value: "team"	
+                                },
+                                {
+                                    text: "Comments", 
+                                    value: "comments"	
                                 }
                             ],
 							data: matches
