@@ -8,6 +8,9 @@ The aim of this project is to gather match data from the team's Android tablets 
 - [Ubuntu Desktop v16.04 LTS](https://www.ubuntu.com/download/desktop)
 - [Bluetooth v4.x Adapter, if not built-in](http://a.co/fmJrtQR)
 
+## Installation
+Prior to installing The Green Alliance - Server, Ubuntu Desktop must be installed on the device being used as a server. The device also requires a Bluetooth adapter. 
+
 ## Installation Script
 This can be pasted in an Ubuntu Terminal and the majority of the server installation will be complete.
 ```
@@ -51,6 +54,9 @@ The file should look Like this, all the devices MAC addresses can be found under
 cd ~/FRC-Scouting/lib
 nodejs ./main.js --event [EVENT_KEY GOES HERE]
 ```
+
+## Issues
+Please create a GitHub issue for any bugs or feature requests.
 
 ## WIKI
 Other information can be found in the Wiki Component of this Repository.
