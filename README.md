@@ -64,6 +64,12 @@ cd ~/FRC-Scouting/lib
 nodejs ./main.js --event [EVENT_KEY GOES HERE]
 ```
 
+## Viewing Analysis Portal
+The data analysis can be done by opening up the following URL in a browser on the same laptop the server is running on.
+```
+localhost:4909
+```
+
 ## Issues
 Please create a GitHub issue for any bugs or feature requests.
 
