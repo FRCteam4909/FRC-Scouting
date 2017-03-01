@@ -218,9 +218,7 @@ module.exports = {
                   "teleop-high-kPa": { $stdDevPop: '$teleop-high-kPa' },
                   "teleop-gears": { $stdDevPop: '$teleop-gears' },
                   
-                  "touchpad": { $stdDevPop: '$touchpad' },
-                  
-                  "do-not-pick": { $stdDevPop: '$do-not-pick' }
+                  "touchpad": { $stdDevPop: '$touchpad' }
               }
           }
         ]).toArray(function(err, matches) {
@@ -263,10 +261,6 @@ module.exports = {
                             {
                                 text: "Pressed Touchpad",
                                 value: "touchpad"
-                            },
-                            {
-                                text: "Do Not Pick", 
-                                value: "do-not-pick"	
                             }
                         ],
                         data: matches

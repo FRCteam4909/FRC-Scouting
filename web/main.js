@@ -13,7 +13,7 @@ var app = express();
 app.use(serveStatic('www', {
 	'index': ['index.html']
 }));
-app.listen(1337);
+app.listen(4909);
 
 const server = restify.createServer({
 	name: 'frc-scouting',
