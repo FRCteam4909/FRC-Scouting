@@ -13,7 +13,7 @@ echo "=========="
 
 echo "Installing Scouting System"
 mkdir -p ~/FRC-Scouting/lib
-cp -R ../backend/* ~/FRC-Scouting/lib
+cp -R ~/FRC-Scouting/backend/* ~/FRC-Scouting/lib
 
 echo "Configuring Scouting System"
 cd ~/FRC-Scouting/lib

@@ -1,19 +1,9 @@
-const express = require('express'),
-	serveStatic = require('serve-static'),
+const restify = require('restify'),
+      plugins = require('restify-plugins'),
 
-	restify = require('restify'),
-	plugins = require('restify-plugins'),
-
-	MongoClient = require('mongodb').MongoClient,
-
-	views = require('../config/views');
-
-var app = express();
-
-app.use(serveStatic('www', {
-	'index': ['index.html']
-}));
-app.listen(4909);
+      MongoClient = require('mongodb').MongoClient,
+      
+      views = require('../../config/views');
 
 const server = restify.createServer({
 	name: 'frc-scouting',
