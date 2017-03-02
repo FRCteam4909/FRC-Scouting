@@ -71,6 +71,7 @@ function pollForNewData(devices) {
 
                             data.msg.sender = data.sender.serial;
                             data.msg.event = eventKey;
+                            data.msg.competition = 2017;
 
                             // Log File to MongoDB
                             matchData.insertOne(data.msg);

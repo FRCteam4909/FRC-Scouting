@@ -41,7 +41,7 @@ module.exports = {
 	
 	matches: function (mongoCollection, callback) {
 		mongoCollection
-			.find()
+			.find({"competition": 2017})
 			.sort({"_id": -1})
 			.toArray(function (err, matches) {
 				callback([
@@ -103,7 +103,7 @@ module.exports = {
     
     comments: function (mongoCollection, callback) {
 		mongoCollection
-			.find()
+			.find({"competition": 2017})
 			.sort({"_id": -1})
 			.toArray(function (err, matches) {
 				callback([
@@ -129,6 +129,9 @@ module.exports = {
     
     teamAverages: function (mongoCollection, callback) {
         mongoCollection.aggregate([
+          {
+              $match: {"competition": 2017}  
+          },
           {
               $group: {
                   _id: '$team',
@@ -204,6 +207,9 @@ module.exports = {
     
     teamConsistency: function (mongoCollection, callback) {
         mongoCollection.aggregate([
+          {
+              $match: {"competition": 2017}  
+          },
           {
               $group: {
                   _id: '$team',
