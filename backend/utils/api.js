@@ -3,7 +3,9 @@ const restify = require('restify'),
 
       MongoClient = require('mongodb').MongoClient,
       
-      views = require('../../config/views');
+      views = require('../../config/views'),
+      
+	config = require('./config');
 
 // TODO: filter event key
 
@@ -31,7 +33,7 @@ module.exports = function (eventKey){
     });
 
     server.get('/data/:view', function (req, res, next) {
-        MongoClient.connect('mongodb://127.0.0.1:27017/FRC-Scouting', function (err, db) {
+        MongoClient.connect(config.db, function (err, db) {
             const collection = db.collection('matches');
 
             views[req.params.view](collection, function (data) {
