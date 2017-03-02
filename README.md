@@ -10,7 +10,7 @@ The aim of this project is to gather match data from the team's Android tablets 
 - Issues/Wiki
 
 ## Initial Configuration
-[Installation and Configuration](./INSTALL.md)
+[Details on Installation and Configuration](./INSTALL.md)
 
 ## Using the Scouting System
 ### Running the Server, using the terminal
