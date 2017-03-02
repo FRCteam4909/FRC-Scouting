@@ -73,7 +73,11 @@ localhost:4909
 This will be done in the ESFileExplorer app. You should choose to deny making the Bluetooth device visible for pairing, as to avoid additional prompts while scouting. This app should remain open in the background to facilitate the Bluetooth data transfer.
 
 ### Run the App
-Open the TGA app on the tablets, and begin to scout! Once data is submitted, the matches will appear in the analysis portal momentarily. This data transfer process can take up to 1-2 minutes, at most. When data transfer is pending, the top navigation bar will be red in color, and when all transfers are complete, the navigation bar will be green in color.
+Open the TGA app on the tablets, and begin to scout! 
+
+Once data is submitted, the matches will appear in the analysis portal momentarily. This data transfer process can take up to 1-2 minutes, at most. 
+
+When data transfer is pending, the top navigation bar will be red in color, and when all transfers are complete, the navigation bar will be green in color.
 
 ## Issues
 Please create a GitHub issue for any bugs or feature requests.
