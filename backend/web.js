@@ -15,7 +15,7 @@ console.log('The Green Alliance - Web Server')
 if(typeof program.event == "string" && program.event != ""){
     console.log(' - Event Key:' + program.event);
 
-    api = (require('./utils/api'))(eventKey);
+    api = (require('./utils/api'))(program.event);
     
     app.use(serveStatic('www', {
         'index': ['index.html']
