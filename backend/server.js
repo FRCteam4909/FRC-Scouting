@@ -8,7 +8,7 @@ const OBEX_utils = require('./utils/obex_utils'),
 
 	config = require('./utils/config');
       
-var api, eventKey;
+var eventKey;
 
 function pollForNewData(devices) {
 	// Exit if there are no device to poll for
@@ -116,7 +116,6 @@ const devices = require("../config/devices");
 
 module.exports = function(newEventKey){
     eventKey = newEventKey;
-    api = (require('./utils/api'))(eventKey);
     
     // Begin Polling Loop
     pollForNewData(devices);
