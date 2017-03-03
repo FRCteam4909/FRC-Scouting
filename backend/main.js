@@ -9,8 +9,8 @@ console.log('The Green Alliance - Server')
 
 if(typeof program.event == "string" && program.event != ""){
     console.log(' - Event Key:' + program.event);
-    (require('./server'))(program.event);
     require('./web');
+    (require('./server'))(program.event);
 } else {
     console.log(' - An Event Key is Required');
 }

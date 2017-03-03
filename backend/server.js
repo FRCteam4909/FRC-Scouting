@@ -104,7 +104,7 @@ function pollForNewData(devices) {
 	});
 	
 	// Start Polling Again
-	// - Used setTiemout as opposed to setInterval as that could lead to overlap and file 
+	// - Used setTimeout as opposed to setInterval as that could lead to overlap and file 
 	//     access could clash
 	setTimeout(function() {
 		pollForNewData(devices);
