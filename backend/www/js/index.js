@@ -116,3 +116,8 @@ function renderTypes(num) {
 	else
 		return num;
 }
+
+/* http://stackoverflow.com/a/31687097 */
+function scaleBetween(unscaledNum, minAllowed, maxAllowed, min, max) {
+  return (maxAllowed - minAllowed) * (unscaledNum - min) / (max - min) + minAllowed;
+}
