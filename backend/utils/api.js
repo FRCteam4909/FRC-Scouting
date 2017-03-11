@@ -7,9 +7,7 @@ const restify = require('restify'),
       
 	config = require('./config');
 
-// TODO: filter event key
-
-module.exports = function (eventKey){
+module.exports = function (){
     const server = restify.createServer({
         name: 'frc-scouting',
         version: '1.0.0'
