@@ -68,7 +68,8 @@ function loadData(index) {
                     "lengthMenu": rootView.lengthMenu ? rootView.lengthMenu : null,
                     "order": [],
                      "columnDefs": [
-                        { "searchable": true, "targets": 0 },
+                        { "searchable": true, "targets": 0 }, // Team Number
+                        { "searchable": true, /*"visible": false,*/ "targets": 1 }, // Event Key
                         { "searchable": false, "targets": "_all" },
                       ]
                  });
@@ -86,6 +87,19 @@ $('#findTeamNumber').bind('input', function() {
     else
         $.fn.dataTable.tables( { api: true } )
             .columns(0)
+                .search("^" + $(this).val() + "$", true, false, true)
+                .draw();
+});
+
+$('#findEvent').bind('input', function() {
+    if($(this).val() == "")
+        $.fn.dataTable.tables( { api: true } )
+            .columns(1)
+                .search("")
+                .draw();
+    else
+        $.fn.dataTable.tables( { api: true } )
+            .columns(1)
                 .search("^" + $(this).val() + "$", true, false, true)
                 .draw();
 });
