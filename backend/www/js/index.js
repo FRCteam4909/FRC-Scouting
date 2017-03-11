@@ -18,9 +18,6 @@ $.get("http://127.0.0.1:1338/views", function (ajaxViews) {
 });
 
 function loadData(index) {
-    searchColumn(0, $("#findTeamNumber").val());
-    searchColumn(1, $("#findEvent").val());
-    
 	if(!index)
 		index = activeView
 	else
@@ -75,6 +72,9 @@ function loadData(index) {
                       ]
                  });
             });
+            
+            searchColumn(0, $("#findTeamNumber").val());
+            searchColumn(1, $("#findEvent").val());
         });
     });
 }
