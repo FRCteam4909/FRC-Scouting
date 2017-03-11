@@ -53,6 +53,10 @@ module.exports = {
                                     value: "team"	
                                 },
                                 {
+                                    text: "Event", 
+                                    value: "event"	
+                                },
+                                {
                                     text: "Crossed Baseline", 
                                     value: "baseline"	
                                 },
@@ -115,6 +119,10 @@ module.exports = {
                                     value: "team"	
                                 },
                                 {
+                                    text: "Event", 
+                                    value: "event"	
+                                },
+                                {
                                     text: "Comments", 
                                     value: "comments"	
                                 }
@@ -134,7 +142,10 @@ module.exports = {
           },
           {
               $group: {
-                  _id: '$team',
+                  _id: {
+                      "team": '$team',
+                      "event": '$event'
+                  },
                   
                   "baseline": { $avg: '$baseline' },
                   
@@ -158,7 +169,11 @@ module.exports = {
                         headers: [
                             {
                                 text: "Team", 
-                                value: "_id"	
+                                value: "_id.team"	
+                            },
+                            {
+                                text: "Event", 
+                                value: "_id.event"	
                             },
                             {
                                 text: "Crossed Baseline", 
@@ -212,7 +227,10 @@ module.exports = {
           },
           {
               $group: {
-                  _id: '$team',
+                  _id: {
+                      "team": '$team',
+                      "event": '$event'
+                  },
                   
                   "baseline": { $stdDevPop: '$baseline' },
                   
@@ -234,7 +252,11 @@ module.exports = {
                         headers: [
                             {
                                 text: "Team", 
-                                value: "_id"	
+                                value: "_id.team"	
+                            },
+                            {
+                                text: "Event", 
+                                value: "_id.event"	
                             },
                             {
                                 text: "Crossed Baseline", 
