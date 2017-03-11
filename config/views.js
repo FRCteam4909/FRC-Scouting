@@ -120,7 +120,7 @@ module.exports = {
                             },
                             {
                                 text: "Event", 
-                                value: "event"	
+                                value: "event"
                             },
                             {
                                 text: "Comments", 

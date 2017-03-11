@@ -65,11 +65,11 @@ function loadData(index) {
                       },
                     "lengthMenu": rootView.lengthMenu ? rootView.lengthMenu : null,
                     "order": [],
-                     "columnDefs": [
+                    "columnDefs": [
                         { "searchable": true, "targets": 0 }, // Team Number
                         { "searchable": true, /*"visible": false,*/ "targets": 1 }, // Event Key
                         { "searchable": false, "targets": "_all" },
-                      ]
+                    ]
                  });
             });
             
