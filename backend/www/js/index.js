@@ -18,7 +18,8 @@ $.get("http://127.0.0.1:1338/views", function (ajaxViews) {
 });
 
 function loadData(index) {
-    $('#findTeamNumber, #findEvent').trigger('input');
+    searchColumn(0, $("#findTeamNumber").val());
+    searchColumn(1, $("#findEvent").val());
     
 	if(!index)
 		index = activeView
@@ -79,20 +80,15 @@ function loadData(index) {
 }
 
 $('#findTeamNumber').bind('input', function() {
-    if($(this).val() == "")
-        $.fn.dataTable.tables( { api: true } )
-            .columns(0)
-                .search("")
-                .draw();
-    else
-        $.fn.dataTable.tables( { api: true } )
-            .columns(0)
-                .search("^" + $(this).val() + "$", true, false, true)
-                .draw();
+    searchColumn(0, $(this).val());
 });
 
 $('#findEvent').bind('input', function() {
-    if($(this).val() == "")
+    searchColumn(1, $(this).val());
+});
+
+function searchColumn(col, value){
+    if(value == "")
         $.fn.dataTable.tables( { api: true } )
             .columns(1)
                 .search("")
@@ -100,9 +96,9 @@ $('#findEvent').bind('input', function() {
     else
         $.fn.dataTable.tables( { api: true } )
             .columns(1)
-                .search("^" + $(this).val() + "$", true, false, true)
+                .search("^" + value + "$", true, false, true)
                 .draw();
-});
+}
 
 /* http://stackoverflow.com/a/8052100 */
 function getDescendantProp(obj, desc) {
