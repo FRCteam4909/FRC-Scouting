@@ -46,134 +46,15 @@ module.exports = {
 			.toArray(function (err, matches) {
 				callback([
 					{
-							name: "Team Matches",
-							headers: [
-                                {
-                                    text: "Team", 
-                                    value: "team"	
-                                },
-                                {
-                                    text: "Event", 
-                                    value: "event"	
-                                },
-                                {
-                                    text: "Crossed Baseline", 
-                                    value: "baseline"	
-                                },
-                                {
-                                    text: "Auto. Low Goal kPa",
-                                    value: "auto-low-kPa"
-                                },
-                                {
-                                    text: "Auto. High Goal kPa",
-                                    value: "auto-high-kPa"
-                                },
-                                {
-                                    text: "Auto. Gears Placed",
-                                    value: "auto-gears"
-                                },
-                                {
-                                    text: "Teleop. Low Goal kPa",
-                                    value: "teleop-low-kPa"
-                                },
-                                {
-                                    text: "Teleop. High Goal kPa",
-                                    value: "teleop-high-kPa"
-                                },
-                                {
-                                    text: "Teleop. Gears Placed",
-                                    value: "teleop-gears"
-                                },
-                                {
-                                    text: "Pressed Touchpad",
-                                    value: "touchpad"
-                                },
-                                {
-                                    text: "Comments", 
-                                    value: "comments"	
-                                },
-                                {
-                                    text: "Do Not Pick", 
-                                    value: "do-not-pick"	
-                                }
-                            ],
-							data: matches
-					}
-				]);
-
-				db.close();
-			});
-	},
-    
-    comments: function (mongoCollection, callback) {
-		mongoCollection
-			.find({"competition": 2017})
-			.sort({"_id": -1})
-			.toArray(function (err, matches) {
-				callback([
-					{
-							name: "Team Comments",
-							headers: [
-                                {
-                                    text: "Team", 
-                                    value: "team"	
-                                },
-                                {
-                                    text: "Event", 
-                                    value: "event"	
-                                },
-                                {
-                                    text: "Comments", 
-                                    value: "comments"	
-                                }
-                            ],
-							data: matches
-					}
-				]);
-
-				db.close();
-			});
-	},
-    
-    teamAverages: function (mongoCollection, callback) {
-        mongoCollection.aggregate([
-          {
-              $match: {"competition": 2017}  
-          },
-          {
-              $group: {
-                  _id: {
-                      "team": '$team',
-                      "event": '$event'
-                  },
-                  
-                  "baseline": { $avg: '$baseline' },
-                  
-                  "auto-low-kPa": { $avg: '$auto-low-kPa' },
-                  "auto-high-kPa": { $avg: '$auto-high-kPa' },
-                  "auto-gears": { $avg: '$auto-gears' },
-                  
-                  "teleop-low-kPa": { $avg: '$teleop-low-kPa' },
-                  "teleop-high-kPa": { $avg: '$teleop-high-kPa' },
-                  "teleop-gears": { $avg: '$teleop-gears' },
-                  
-                  "touchpad": { $avg: '$touchpad' },
-                  
-                  "do-not-pick": { $avg: '$do-not-pick' }
-              }
-          }
-        ]).toArray(function(err, matches) {
-            callback([
-                {
-                        name: "Team Averages",
+                        name: "Team Matches",
                         headers: [
                             {
                                 text: "Team", 
-                                value: "_id.team"	
+                                value: "team"	
                             },
                             {
                                 text: "Event", 
-                                value: "_id.event"	
+                                value: "event"	
                             },
                             {
                                 text: "Crossed Baseline", 
@@ -208,11 +89,130 @@ module.exports = {
                                 value: "touchpad"
                             },
                             {
+                                text: "Comments", 
+                                value: "comments"	
+                            },
+                            {
                                 text: "Do Not Pick", 
                                 value: "do-not-pick"	
                             }
                         ],
                         data: matches
+					}
+				]);
+
+				db.close();
+			});
+	},
+    
+    comments: function (mongoCollection, callback) {
+		mongoCollection
+			.find({"competition": 2017})
+			.sort({"_id": -1})
+			.toArray(function (err, matches) {
+				callback([
+					{
+                        name: "Team Comments",
+                        headers: [
+                            {
+                                text: "Team", 
+                                value: "team"	
+                            },
+                            {
+                                text: "Event", 
+                                value: "event"	
+                            },
+                            {
+                                text: "Comments", 
+                                value: "comments"	
+                            }
+                        ],
+                        data: matches
+					}
+				]);
+
+				db.close();
+			});
+	},
+    
+    teamAverages: function (mongoCollection, callback) {
+        mongoCollection.aggregate([
+          {
+              $match: {"competition": 2017}
+          },
+          {
+              $group: {
+                  _id: {
+                      "team": '$team',
+                      "event": '$event'
+                  },
+                  
+                  "baseline": { $avg: '$baseline' },
+                  
+                  "auto-low-kPa": { $avg: '$auto-low-kPa' },
+                  "auto-high-kPa": { $avg: '$auto-high-kPa' },
+                  "auto-gears": { $avg: '$auto-gears' },
+                  
+                  "teleop-low-kPa": { $avg: '$teleop-low-kPa' },
+                  "teleop-high-kPa": { $avg: '$teleop-high-kPa' },
+                  "teleop-gears": { $avg: '$teleop-gears' },
+                  
+                  "touchpad": { $avg: '$touchpad' },
+                  
+                  "do-not-pick": { $avg: '$do-not-pick' }
+              }
+          }
+        ]).toArray(function(err, matches) {
+            callback([
+                {
+                    name: "Team Averages",
+                    headers: [
+                        {
+                            text: "Team", 
+                            value: "_id.team"	
+                        },
+                        {
+                            text: "Event", 
+                            value: "_id.event"	
+                        },
+                        {
+                            text: "Crossed Baseline", 
+                            value: "baseline"	
+                        },
+                        {
+                            text: "Auto. Low Goal kPa",
+                            value: "auto-low-kPa"
+                        },
+                        {
+                            text: "Auto. High Goal kPa",
+                            value: "auto-high-kPa"
+                        },
+                        {
+                            text: "Auto. Gears Placed",
+                            value: "auto-gears"
+                        },
+                        {
+                            text: "Teleop. Low Goal kPa",
+                            value: "teleop-low-kPa"
+                        },
+                        {
+                            text: "Teleop. High Goal kPa",
+                            value: "teleop-high-kPa"
+                        },
+                        {
+                            text: "Teleop. Gears Placed",
+                            value: "teleop-gears"
+                        },
+                        {
+                            text: "Pressed Touchpad",
+                            value: "touchpad"
+                        },
+                        {
+                            text: "Do Not Pick", 
+                            value: "do-not-pick"	
+                        }
+                    ],
+                    data: matches
                 }
             ]);
             
@@ -248,50 +248,50 @@ module.exports = {
         ]).toArray(function(err, matches) {
             callback([
                 {
-                        name: "Team Consistency",
-                        headers: [
-                            {
-                                text: "Team", 
-                                value: "_id.team"	
-                            },
-                            {
-                                text: "Event", 
-                                value: "_id.event"	
-                            },
-                            {
-                                text: "Crossed Baseline", 
-                                value: "baseline"	
-                            },
-                            {
-                                text: "Auto. Low Goal kPa",
-                                value: "auto-low-kPa"
-                            },
-                            {
-                                text: "Auto. High Goal kPa",
-                                value: "auto-high-kPa"
-                            },
-                            {
-                                text: "Auto. Gears Placed",
-                                value: "auto-gears"
-                            },
-                            {
-                                text: "Teleop. Low Goal kPa",
-                                value: "teleop-low-kPa"
-                            },
-                            {
-                                text: "Teleop. High Goal kPa",
-                                value: "teleop-high-kPa"
-                            },
-                            {
-                                text: "Teleop. Gears Placed",
-                                value: "teleop-gears"
-                            },
-                            {
-                                text: "Pressed Touchpad",
-                                value: "touchpad"
-                            }
-                        ],
-                        data: matches
+                    name: "Team Consistency",
+                    headers: [
+                        {
+                            text: "Team", 
+                            value: "_id.team"	
+                        },
+                        {
+                            text: "Event", 
+                            value: "_id.event"	
+                        },
+                        {
+                            text: "Crossed Baseline", 
+                            value: "baseline"	
+                        },
+                        {
+                            text: "Auto. Low Goal kPa",
+                            value: "auto-low-kPa"
+                        },
+                        {
+                            text: "Auto. High Goal kPa",
+                            value: "auto-high-kPa"
+                        },
+                        {
+                            text: "Auto. Gears Placed",
+                            value: "auto-gears"
+                        },
+                        {
+                            text: "Teleop. Low Goal kPa",
+                            value: "teleop-low-kPa"
+                        },
+                        {
+                            text: "Teleop. High Goal kPa",
+                            value: "teleop-high-kPa"
+                        },
+                        {
+                            text: "Teleop. Gears Placed",
+                            value: "teleop-gears"
+                        },
+                        {
+                            text: "Pressed Touchpad",
+                            value: "touchpad"
+                        }
+                    ],
+                    data: matches
                 }
             ]);
             
@@ -299,4 +299,3 @@ module.exports = {
         });
 	}
 };
-
