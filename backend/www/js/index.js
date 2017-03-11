@@ -18,8 +18,7 @@ $.get("http://127.0.0.1:1338/views", function (ajaxViews) {
 });
 
 function loadData(index) {
-    $('#findTeamNumber').val($('#findTeamNumber').val());
-    $('#findEvent').val($('#findEvent').val());
+    $('#findTeamNumber, #findEvent').trigger('input');
     
 	if(!index)
 		index = activeView
