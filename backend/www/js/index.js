@@ -90,12 +90,12 @@ $('#findEvent').bind('input', function() {
 function searchColumn(col, value){
     if(value == "")
         $.fn.dataTable.tables( { api: true } )
-            .columns(1)
+            .columns(col)
                 .search("")
                 .draw();
     else
         $.fn.dataTable.tables( { api: true } )
-            .columns(1)
+            .columns(col)
                 .search("^" + value + "$", true, false, true)
                 .draw();
 }
