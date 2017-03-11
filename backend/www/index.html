@@ -46,6 +46,9 @@
                 <div class="input-group">
                   <div class="input-group-addon">Event Code</div>
                   <input type="text" class="form-control" id="findEvent" placeholder="Event Code">
+                  <span class="input-group-btn">
+                      <button class="btn btn-default" type="button" onclick="$('#findEvent').prop('disabled', !$('#findEvent').prop('disabled))">TOGGLE EVENT LOCK</button>
+                  </span>
                 </div>
               </div>
               <div class="form-group">
