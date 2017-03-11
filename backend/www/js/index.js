@@ -52,7 +52,7 @@ function loadData(index) {
                     table += `</tr>`;
                 });
 
-                table += `</tbody></table></div><hr>`
+                table += `</tbody></table></div><hr>`;
 
                 $(".main").append(table);
 
