@@ -37,6 +37,7 @@ function pollForNewData(devices) {
                 OBEX_utils.mkdirp(
 					expandHomeDir(config.receive_directory)
 				);
+                
                 try {
                     // Write Form File
                     const form = fs.readFileSync(expandHomeDir("~/FRC-Scouting/config/form.json"));
@@ -83,10 +84,11 @@ function pollForNewData(devices) {
                             fs.unlinkSync(filePath);
                         } catch (e) {
                             // TODO: DUMP ERRORS TO LOG
-                            console.error(e);
+                            console.error("There was an error with data transfer: " + macAddr);
                         }
                     });
                 } catch(e){}
+                
 				sleep(2);
 
 				// Unmount Device
@@ -96,7 +98,7 @@ function pollForNewData(devices) {
 				sleep(4);
 			} catch (e) {
 				// TODO: DUMP ERRORS TO LOG
-				console.error(e);
+                console.error("There was an error with data transfer: " + macAddr);
 			}
 		});
 	  	
