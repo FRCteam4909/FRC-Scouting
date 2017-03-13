@@ -47,7 +47,7 @@ module.exports = {
 				callback([
 					{
                         name: "Team Matches",
-                        cols: [2,3,4,5,6,7,8,9,11],
+                        cols: [2,3,4,5,6,7,8,9,10,11,12,14],
                         headers: [
                             {
                                 text: "Team", 
@@ -184,7 +184,7 @@ module.exports = {
             callback([
                 {
                     name: "Team Averages",
-                    cols: [2,3,4,5,6,7,8,9],
+                    cols: [2,3,4,5,6,7,8,9,10,11,12,13],
                     headers: [
                         {
                             text: "Team", 
@@ -284,7 +284,7 @@ module.exports = {
             callback([
                 {
                     name: "Team Consistency",
-                    cols: [2,3,4,5,6,7,8,9],
+                    cols: [2,3,4,5,6,7,8,9,10,11,12],
                     headers: [
                         {
                             text: "Team", 
