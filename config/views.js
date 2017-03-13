@@ -74,6 +74,10 @@ module.exports = {
                                 value: "auto-gears"
                             },
                             {
+                                text: "Auto. Gears Dropped",
+                                value: "auto-drop-gears"
+                            },
+                            {
                                 text: "Teleop. Low Goal kPa",
                                 value: "teleop-low-kPa"
                             },
@@ -84,6 +88,14 @@ module.exports = {
                             {
                                 text: "Teleop. Gears Placed",
                                 value: "teleop-gears"
+                            },
+                            {
+                                text: "Teleop. Gears Dropped",
+                                value: "teleop-drop-gears"
+                            },
+                            {
+                                text: "Attempted Touchpad",
+                                value: "touchpad-attempted"
                             },
                             {
                                 text: "Pressed Touchpad",
@@ -160,6 +172,10 @@ module.exports = {
                   "teleop-gears": { $avg: '$teleop-gears' },
                   
                   "touchpad": { $avg: '$touchpad' },
+                  "touchpad-attempted": { $avg: '$touchpad-attempted' },
+                  
+                  "auto-drop-gears": { $avg: '$auto-drop-gears' },
+                  "teleop-drop-gears": { $avg: '$teleop-drop-gears' },
                   
                   "do-not-pick": { $avg: '$do-not-pick' }
               }
@@ -195,6 +211,10 @@ module.exports = {
                             value: "auto-gears"
                         },
                         {
+                            text: "Auto. Gears Dropped",
+                            value: "auto-drop-gears"
+                        },
+                        {
                             text: "Teleop. Low Goal kPa",
                             value: "teleop-low-kPa"
                         },
@@ -205,6 +225,14 @@ module.exports = {
                         {
                             text: "Teleop. Gears Placed",
                             value: "teleop-gears"
+                        },
+                        {
+                            text: "Teleop. Gears Dropped",
+                            value: "teleop-drop-gears"
+                        },
+                        {
+                            text: "Attempted Touchpad",
+                            value: "touchpad-attempted"
                         },
                         {
                             text: "Pressed Touchpad",
@@ -245,7 +273,11 @@ module.exports = {
                   "teleop-high-kPa": { $stdDevPop: '$teleop-high-kPa' },
                   "teleop-gears": { $stdDevPop: '$teleop-gears' },
                   
-                  "touchpad": { $stdDevPop: '$touchpad' }
+                  "touchpad": { $stdDevPop: '$touchpad' },
+                  "touchpad-attempted": { $avg: '$touchpad-attempted' },
+                  
+                  "auto-drop-gears": { $avg: '$auto-drop-gears' },
+                  "teleop-drop-gears": { $avg: '$teleop-drop-gears' }
               }
           }
         ]).toArray(function(err, matches) {
@@ -279,6 +311,10 @@ module.exports = {
                             value: "auto-gears"
                         },
                         {
+                            text: "Auto. Gears Dropped",
+                            value: "auto-drop-gears"
+                        },
+                        {
                             text: "Teleop. Low Goal kPa",
                             value: "teleop-low-kPa"
                         },
@@ -289,6 +325,14 @@ module.exports = {
                         {
                             text: "Teleop. Gears Placed",
                             value: "teleop-gears"
+                        },
+                        {
+                            text: "Teleop. Gears Dropped",
+                            value: "teleop-drop-gears"
+                        },
+                        {
+                            text: "Attempted Touchpad",
+                            value: "touchpad-attempted"
                         },
                         {
                             text: "Pressed Touchpad",

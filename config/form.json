@@ -29,7 +29,7 @@
                                 "label": "Low Goal - kPa Contributed",
                                 "id": "auto-low-kPa",
                                 "incrLabel": "<svg fill=\"#ffffff\" height=\"40\" viewBox=\"0 0 24 24\" width=\"40\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\"><path d=\"M0 0h24v24H0V0z\" fill=\"none\"\/><path d=\"M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z\" fill=\"#ffffff\"\/><\/svg>",
-                                "amount": 1
+                                "amount": 3
                             }]
                         },
                         {
@@ -38,7 +38,7 @@
                                 "label": "High Goal - kPa Contributed",
                                 "id": "auto-high-kPa",
                                 "incrLabel": "<svg fill=\"#ffffff\" height=\"40\" viewBox=\"0 0 24 24\" width=\"40\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\"><path d=\"M0 0h24v24H0V0z\" fill=\"none\"\/><path d=\"M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z\"\/><\/svg>",
-                                "amount": 1
+                                "amount": 3
                             }]
                         },
                         {
@@ -46,6 +46,15 @@
                                 "type": "incr",
                                 "label": "Gears Delivered to Airship",
                                 "id": "auto-gears",
+                                "incrLabel": "<svg fill=\"#ffffff\" height=\"40\" viewBox=\"0 0 24 24\" width=\"40\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\"><path d=\"M0 0h24v24H0z\" fill=\"none\"\/><path d=\"M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z\"\/><\/svg>",
+                                "amount": 1
+                            }]
+                        },
+                        {
+                            "fields": [{
+                                "type": "incr",
+                                "label": "Gears Dropped from Airship",
+                                "id": "auto-drop-gears",
                                 "incrLabel": "<svg fill=\"#ffffff\" height=\"40\" viewBox=\"0 0 24 24\" width=\"40\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\"><path d=\"M0 0h24v24H0z\" fill=\"none\"\/><path d=\"M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z\"\/><\/svg>",
                                 "amount": 1
                             }]
@@ -68,7 +77,7 @@
                                 "label": "Low Goal - kPa Contributed",
                                 "id": "teleop-low-kPa",
                                 "incrLabel": "<svg fill=\"#ffffff\" height=\"40\" viewBox=\"0 0 24 24\" width=\"40\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\"><path d=\"M0 0h24v24H0V0z\" fill=\"none\"\/><path d=\"M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z\" fill=\"#ffffff\"\/><\/svg>",
-                                "amount": 1
+                                "amount": 3
                             }]
                         },
                         {
@@ -77,7 +86,7 @@
                                 "label": "High Goal - kPa Contributed",
                                 "id": "teleop-high-kPa",
                                 "incrLabel": "<svg fill=\"#ffffff\" height=\"40\" viewBox=\"0 0 24 24\" width=\"40\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\"><path d=\"M0 0h24v24H0V0z\" fill=\"none\"\/><path d=\"M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z\"\/><\/svg>",
-                                "amount": 1
+                                "amount": 3
                             }]
                         },
                         {
@@ -85,6 +94,15 @@
                                 "type": "incr",
                                 "label": "Gears Delivered to Airship",
                                 "id": "teleop-gears",
+                                "incrLabel": "<svg fill=\"#ffffff\" height=\"40\" viewBox=\"0 0 24 24\" width=\"40\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\"><path d=\"M0 0h24v24H0z\" fill=\"none\"\/><path d=\"M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z\"\/><\/svg>",
+                                "amount": 1
+                            }]
+                        },
+                        {
+                            "fields": [{
+                                "type": "incr",
+                                "label": "Gears Dropped from Airship",
+                                "id": "teleop-drop-gears",
                                 "incrLabel": "<svg fill=\"#ffffff\" height=\"40\" viewBox=\"0 0 24 24\" width=\"40\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\"><path d=\"M0 0h24v24H0z\" fill=\"none\"\/><path d=\"M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z\"\/><\/svg>",
                                 "amount": 1
                             }]
@@ -100,7 +118,12 @@
             "fields": [
                 {
                     "type": "checkbox",
-                    "label": "Touchpad triggered",
+                    "label": "Touchpad Attempted",
+                    "id": "touchpad-attempted"
+                },
+                {
+                    "type": "checkbox",
+                    "label": "Touchpad Triggered",
                     "id": "touchpad"
                 },
                 {
@@ -116,7 +139,7 @@
                 },
                 {
                     "type": "checkbox",
-                    "label": "Add to do not pick list",
+                    "label": "Add to Do Not Pick List",
                     "id": "dnp-list"
                 }
             ]
@@ -130,10 +153,14 @@
         "auto-low-kPa": "incr:#auto-low-kPa",
         "auto-high-kPa": "incr:#auto-high-kPa",
         "auto-gears": "incr:#auto-gears",
+        "auto-drop-gears": "incr:#auto-drop-gears",
 
         "teleop-low-kPa": "incr:#teleop-low-kPa",
         "teleop-high-kPa": "incr:#teleop-high-kPa",
         "teleop-gears": "incr:#teleop-gears",
+        "teleop-drop-gears": "incr:#teleop-drop-gears",
+        
+        "touchpad-attempted": "checkbox:#touchpad-attempted",
         "touchpad": "checkbox:#touchpad",
 
         "comments": "text:#comments",
