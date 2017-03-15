@@ -14,7 +14,8 @@
                 {
                     "type": "checkbox",
                     "label": "Crossed Baseline",
-                    "id": "baseline"
+                    "id": "baseline",
+                    "onchange": ""
                 },
                 {
                     "type": "divider"
@@ -119,12 +120,14 @@
                 {
                     "type": "checkbox",
                     "label": "Touchpad Attempted",
-                    "id": "touchpad-attempted"
+                    "id": "touchpad-attempted",
+                    "onchange": "if(!$(this).is(':checked')) $('#touchpad').prop('checked', false);"
                 },
                 {
                     "type": "checkbox",
                     "label": "Touchpad Triggered",
-                    "id": "touchpad"
+                    "id": "touchpad",
+                    "onchange": "if($(this).is(':checked')) $('#touchpad-attempted').prop('checked', true);"
                 },
                 {
                     "type": "divider"
@@ -140,7 +143,8 @@
                 {
                     "type": "checkbox",
                     "label": "Add to Do Not Pick List",
-                    "id": "dnp-list"
+                    "id": "dnp-list",
+                    "onchange": ""
                 }
             ]
         }
