@@ -7,7 +7,7 @@
 <div class="toolbar tabbar tabbar-labels">
     <div class="toolbar-inner">				
         {{#each views}}
-            <a href="#" class="tab-link" id="view-link-{{id}}" onclick="$('.form-view').hide(); $('.{{id}}').show();" style="margin:0; padding:0;"><span style="margin:0; padding:0;" class="tabbar-label">{{name}}</span></a>
+            <a href="#" class="tab-link" id="view-link-{{id}}" onclick="$('.form-view').hide(); $('.{{id}}').show(); $('.tab-link').removeClass('active'); $('.tab-link#view-link-{{id}}').addClass('active');" style="margin:0; padding:0;"><span style="margin:0; padding:0;" class="tabbar-label">{{name}}</span></a>
         {{/each}}
     </div>
 </div>
