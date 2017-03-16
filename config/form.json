@@ -30,7 +30,7 @@
                                 "label": "Low Goal - kPa",
                                 "id": "auto-low-kPa",
                                 "incrLabel": "<svg fill=\"#ffffff\" height=\"40\" viewBox=\"0 0 24 24\" width=\"40\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\"><path d=\"M0 0h24v24H0V0z\" fill=\"none\"\/><path d=\"M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z\" fill=\"#ffffff\"\/><\/svg>",
-                                "amount": 3
+                                "amount": 1
                             }]
                         },
                         {
@@ -39,7 +39,7 @@
                                 "label": "High Goal - kPa",
                                 "id": "auto-high-kPa",
                                 "incrLabel": "<svg fill=\"#ffffff\" height=\"40\" viewBox=\"0 0 24 24\" width=\"40\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\"><path d=\"M0 0h24v24H0V0z\" fill=\"none\"\/><path d=\"M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z\"\/><\/svg>",
-                                "amount": 3
+                                "amount": 1
                             }]
                         },
                         {
@@ -78,7 +78,7 @@
                                 "label": "Low Goal - kPa",
                                 "id": "teleop-low-kPa",
                                 "incrLabel": "<svg fill=\"#ffffff\" height=\"40\" viewBox=\"0 0 24 24\" width=\"40\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\"><path d=\"M0 0h24v24H0V0z\" fill=\"none\"\/><path d=\"M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z\" fill=\"#ffffff\"\/><\/svg>",
-                                "amount": 3
+                                "amount": 1
                             }]
                         },
                         {
@@ -87,7 +87,7 @@
                                 "label": "High Goal - kPa",
                                 "id": "teleop-high-kPa",
                                 "incrLabel": "<svg fill=\"#ffffff\" height=\"40\" viewBox=\"0 0 24 24\" width=\"40\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\"><path d=\"M0 0h24v24H0V0z\" fill=\"none\"\/><path d=\"M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z\"\/><\/svg>",
-                                "amount": 3
+                                "amount": 1
                             }]
                         },
                         {
