@@ -1,108 +1,93 @@
 const OBEX_utils = require('./utils/obex_utils'),
-	sleep = require('./utils/sleep'),
-
-	expandHomeDir = require('expand-home-dir'),
-	fs = require('fs'),
-	 
-	MongoClient = require('mongodb').MongoClient,
-
-	config = require('./utils/config');
+      sleep = require('./utils/sleep'),
       
-var eventKey;
+      expandHomeDir = require('expand-home-dir'),
+      fs = require('fs'),
+
+      MongoClient = require('mongodb').MongoClient,
+      config = require('./utils/config');
+      
+var eventKey,
+    matchResults = [];
 
 function pollForNewData(devices) {
 	// Exit if there are no device to poll for
 	if (!devices)
 		return;
-	
-	MongoClient.connect(config.db, function(err, db) {
-		var matchData = db.collection("matches");
 		
-		// Poll Each Device
-		devices.forEach(function (macAddr) {
-			// Mount Device and Attempt to Read Directory for New Data
-			try {
-				// Mount Device
-				const device = OBEX_utils.mount(
-					macAddr, // Device MAC Addr
-					expandHomeDir(config.device_directory) // Mountpoint
-				);
-                
-				sleep(2);
-                
-				OBEX_utils.mkdirp(
-					expandHomeDir(config.send_directory)
-				);
-                
-                OBEX_utils.mkdirp(
-					expandHomeDir(config.receive_directory)
-				);
-                
-                try {
-                    // Write Form File
-                    const form = fs.readFileSync(expandHomeDir("~/FRC-Scouting/config/form.json"));
-                    fs.writeFileSync(expandHomeDir(config.send_directory) + "form.json", form);
+    // Poll Each Device
+    devices.forEach(function (macAddr, devId) {
+        // Mount Device and Attempt to Read Directory for New Data
+        try {
+            const device = OBEX_utils.mount(
+                macAddr, // Device MAC Addr
+                expandHomeDir(config.device_directory) // Mountpoint
+            );
 
-                    // Write Template File
-                    const template = fs.readFileSync(expandHomeDir("~/FRC-Scouting/backend/templates/form-template.html"));
-                    fs.writeFileSync(expandHomeDir(config.send_directory) + "form-template.html", template);
-                    // Write Template File
-                    const pageTemplate = fs.readFileSync(expandHomeDir("~/FRC-Scouting/backend/templates/page-template.html"));
-                    fs.writeFileSync(expandHomeDir(config.send_directory) + "page-template.html", pageTemplate);
+            sleep(2);
 
-                    // Loop Through All Unread Files
-                    fs.readdirSync(
-                        expandHomeDir(config.receive_directory)
-                    ).forEach(function (file) {
-                        try {
-                            // Construct File Path
-                            const filePath = expandHomeDir(config.receive_directory) + file;
+            OBEX_utils.mkdirp(expandHomeDir(config.send_directory));
+            OBEX_utils.mkdirp(expandHomeDir(config.receive_directory));
 
-                            // Read File
-                            const newFile = fs.readFileSync(filePath, {
-                                encoding: "utf8"
-                            });
+            try {
+                const form = fs.readFileSync(expandHomeDir("~/FRC-Scouting/config/form.json")),
+                      template = fs.readFileSync(expandHomeDir("~/FRC-Scouting/backend/templates/form-template.html")),
+                      pageTemplate = fs.readFileSync(expandHomeDir("~/FRC-Scouting/backend/templates/page-template.html"));
 
-                            // Parse JSON Data
-                            const data = JSON.parse(newFile);
+                fs.writeFileSync(expandHomeDir(config.send_directory) + "form.json", form);
+                fs.writeFileSync(expandHomeDir(config.send_directory) + "form-template.html", template);
+                fs.writeFileSync(expandHomeDir(config.send_directory) + "page-template.html", pageTemplate);
 
-                            // Verify JSON Data
-                            if (data.check != "9dcec4e5sd7f890s")
-                                throw new Error("Error Parsing Data...");
+                // Loop Through All Unread Files
+                fs.readdirSync(
+                    expandHomeDir(config.receive_directory)
+                ).forEach(function (file) {
+                    try {
+                        const filePath = expandHomeDir(config.receive_directory) + file,
+                              newFile = fs.readFileSync(filePath, { encoding: "utf8" });
 
-                            data.msg.sender = data.sender.serial;
-                            data.msg.event = eventKey;
-                            data.msg.competition = 2017;
+                        // Parse JSON Data
+                        const data = JSON.parse(newFile);
 
-                            // Log File to MongoDB
-                            matchData.insertOne(data.msg);
+                        // Verify JSON Data
+                        if (data.check != "9dcec4e5sd7f890s")
+                            throw new Error("Error Parsing Data...");
 
-                            console.dir(data);
-                            console.log("------");
+                        data.msg.sender = data.sender.serial;
+                        data.msg.mac = macAddr;
+                        data.msg.device = devId;
+                        data.msg.event = eventKey;
+                        data.msg.competition = 2017;
 
-                            // Unlink (effectively delete) Old Data
-                            fs.unlinkSync(filePath);
-                        } catch (e) {
-                            // TODO: DUMP ERRORS TO LOG
-                            console.error("There was an error with data transfer: " + macAddr);
-                        }
-                    });
-                } catch(e){}
-                
-				sleep(2);
+                        matchResults.push(data.msg);
 
-				// Unmount Device
-				OBEX_utils.unmount(device);
+                        console.log("---   MATCH DATA   ---");
+                        console.dir(data);
+                        console.log("--- END MATCH DATA ---");
 
-				// Wait Two Seconds
-				sleep(4);
-			} catch (e) {
-				// TODO: DUMP ERRORS TO LOG
-                console.error("There was an error with data transfer: " + macAddr);
-			}
-		});
-	  	
-		db.close();
+                        // Unlink (effectively delete) Old Data
+                        fs.unlinkSync(filePath);
+                    } catch (e) {
+                        console.error("There was an error with data transfer (reading data from tablet): " + macAddr);
+                        console.error(e);
+                    }
+                });
+            } catch(e){
+                console.error("There was an error with data transfer (writing config to tablet): " + macAddr);
+                console.error(e);
+            }
+
+            sleep(2);
+
+            // Unmount Device
+            OBEX_utils.unmount(device);
+
+            // Wait Two Seconds
+            sleep(4);
+        } catch (e) {
+            console.error("There was an error with data transfer (mounting tablet): " + macAddr);
+            console.error(e);
+        }
 	});
 	
 	// Start Polling Again
@@ -118,7 +103,23 @@ const devices = require("../config/devices");
 
 module.exports = function(newEventKey){
     eventKey = newEventKey;
-    
-    // Begin Polling Loop
-    pollForNewData(devices);
+
+	MongoClient.connect(config.db, function(err, db) {
+        // Begin Polling Loop
+        pollForNewData(devices);
+        
+        const matchData = db.collection("matches");
+        
+        setInterval(function() {
+            curMatchResults = matchResults.slice();
+            matchResults = [];
+            
+            matchData.insertMany(curMatchResults, function(err, r) {
+                if(err != null){
+                    console.error(err);
+                    matchResults = matchResults.concat(curMatchResults);
+                }
+            });
+        }, 2500);
+    });
 }
