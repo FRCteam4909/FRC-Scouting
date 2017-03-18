@@ -111,15 +111,17 @@ module.exports = function(newEventKey){
         const matchData = db.collection("matches");
         
         setInterval(function() {
-            curMatchResults = matchResults.slice();
-            matchResults = [];
+            if(matchResults.length > 0){
+                curMatchResults = matchResults.slice();
+                matchResults = [];
             
-            matchData.insertMany(curMatchResults, function(err, r) {
-                if(err != null){
-                    console.error(err);
-                    matchResults = matchResults.concat(curMatchResults);
-                }
-            });
+                matchData.insertMany(curMatchResults, function(err, r) {
+                    if(err != null){
+                        console.error(err);
+                        matchResults = matchResults.concat(curMatchResults);
+                    }
+                });
+            }
         }, 2500);
     });
 }
