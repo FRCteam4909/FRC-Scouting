@@ -274,10 +274,10 @@ module.exports = {
                   "teleop-gears": { $stdDevPop: '$teleop-gears' },
                   
                   "touchpad": { $stdDevPop: '$touchpad' },
-                  "touchpad-attempted": { $avg: '$touchpad-attempted' },
+                  "touchpad-attempted": { $stdDevPop: '$touchpad-attempted' },
                   
-                  "auto-drop-gears": { $avg: '$auto-drop-gears' },
-                  "teleop-drop-gears": { $avg: '$teleop-drop-gears' }
+                  "auto-drop-gears": { $stdDevPop: '$auto-drop-gears' },
+                  "teleop-drop-gears": { $stdDevPop: '$teleop-drop-gears' }
               }
           }
         ]).toArray(function(err, matches) {
