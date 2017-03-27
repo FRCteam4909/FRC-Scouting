@@ -164,12 +164,23 @@ module.exports = {
                   "auto-drop-gears": { $avg: '$auto-drop-gears' },
                   "teleop-drop-gears": { $avg: '$teleop-drop-gears' }
               }
+          },
+          {
+             $addFields: {
+               "touchpad-success": { 
+                   $cond: [
+                       { "$eq": ["$touchpad", 0] },
+                       0, 
+                       { "$divide": ['$touchpad', '$touchpad-attempted']}
+                   ]
+               }
+             }
           }
         ]).toArray(function(err, matches) {
             callback([
                 {
                     name: "Team Averages",
-                    cols: [2,3,4,5,6,7,8,9,10,11,12],
+                    cols: [2,3,4,5,6,7,8,9,10],
                     headers: [
                         {
                             text: "Team", 
@@ -196,10 +207,6 @@ module.exports = {
                             value: "auto-gears"
                         },
                         {
-                            text: "Auto. Gears Dropped",
-                            value: "auto-drop-gears"
-                        },
-                        {
                             text: "Teleop. Low Goal kPa",
                             value: "teleop-low-kPa"
                         },
@@ -212,16 +219,12 @@ module.exports = {
                             value: "teleop-gears"
                         },
                         {
-                            text: "Teleop. Gears Dropped",
-                            value: "teleop-drop-gears"
-                        },
-                        {
-                            text: "Attempted Touchpad",
-                            value: "touchpad-attempted"
-                        },
-                        {
                             text: "Pressed Touchpad",
                             value: "touchpad"
+                        },
+                        {
+                            text: "Touchpad Success Rate",
+                            value: "touchpad-success"
                         }
                     ],
                     data: matches
