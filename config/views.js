@@ -13,7 +13,7 @@ module.exports = {
             }
         ]
 	},{
-		"name": "Pick List Profile",
+		"name": "Overall Team Profile",
 		"views": [
             {
                 "name": "teamAverages",
@@ -30,14 +30,33 @@ module.exports = {
             }
         ]
 	},{
+		"name": "Team Averages",
+		"views": [
+            {
+                "name": "teamAverages",
+                "disableInfo": true,
+                "disablePaging": true
+            }
+        ]
+	},{
 		"name": "Team Consistencies",
 		"views": [
             {
                 "name": "teamConsistency",
-                "lengthMenu": [ [25, 50, 100, -1], [25, 50, 100, "All"] ]
+                "disableInfo": true,
+                "disablePaging": true
             }
         ]
-	}],
+	},{
+		"name": "Match Comments",
+		"views": [
+            {
+                "name": "comments",
+                "disableInfo": true,
+                "disablePaging": true
+            }
+        ]
+	},],
 	
 	matches: function (mongoCollection, callback) {
 		mongoCollection
@@ -161,21 +180,20 @@ module.exports = {
                       "event": '$event'
                   },
                   
-                  "baseline": { $avg: '$baseline' },
-                  
                   "auto-low-kPa": { $avg: '$auto-low-kPa' },
-                  "auto-high-kPa": { $avg: '$auto-high-kPa' },
-                  "auto-gears": { $avg: '$auto-gears' },
-                  
                   "teleop-low-kPa": { $avg: '$teleop-low-kPa' },
+                  
+                  "auto-high-kPa": { $avg: '$auto-high-kPa' },
                   "teleop-high-kPa": { $avg: '$teleop-high-kPa' },
+                  
+                  "auto-gears": { $avg: '$auto-gears' },
                   "teleop-gears": { $avg: '$teleop-gears' },
                   
-                  "touchpad": { $avg: '$touchpad' },
-                  "touchpad-attempted": { $avg: '$touchpad-attempted' },
-                  
                   "auto-drop-gears": { $avg: '$auto-drop-gears' },
-                  "teleop-drop-gears": { $avg: '$teleop-drop-gears' }
+                  "teleop-drop-gears": { $avg: '$teleop-drop-gears' },
+                  
+                  "touchpad": { $avg: '$touchpad' },
+                  "touchpad-attempted": { $avg: '$touchpad-attempted' }      
               }
           },
           {
@@ -193,7 +211,7 @@ module.exports = {
             callback([
                 {
                     name: "Team Averages",
-                    cols: [2,3,4,5,6,7,8,9,10],
+                    cols: [2,3,4,5,6,7,8,9],
                     headers: [
                         {
                             text: "Team", 
@@ -202,10 +220,6 @@ module.exports = {
                         {
                             text: "Event", 
                             value: "_id.event"	
-                        },
-                        {
-                            text: "Crossed Baseline", 
-                            value: "baseline"	
                         },
                         {
                             text: "Auto. Low Goal kPa",
