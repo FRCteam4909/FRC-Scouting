@@ -8,25 +8,12 @@ module.exports = {
                 "disablePaging": true
             },
             {
-                "name": "teamConsistency",
-                "disableInfo": true,
-                "disablePaging": true
-            },
-            {
                 "name": "matches",
                 "lengthMenu": [ [10, 25, 50, 100, -1], [10, 25, 50, 100, "All"] ]
             },
             {
                 "name": "comments",
                 "lengthMenu": [ [10, 25, 50, 100, -1], [10, 25, 50, 100, "All"] ]
-            }
-        ]
-	},{
-		"name": "Team Averages",
-		"views": [
-            {
-                "name": "teamAverages",
-                "lengthMenu": [ [25, 50, 100, -1], [25, 50, 100, "All"] ]
             }
         ]
 	},{
@@ -120,7 +107,7 @@ module.exports = {
     
     comments: function (mongoCollection, callback) {
 		mongoCollection
-			.find({"competition": 2017})
+			.find({"competition": 2017, "comments": { $ne: "" }})
 			.sort({"_id": -1})
 			.toArray(function (err, matches) {
 				callback([
@@ -175,16 +162,14 @@ module.exports = {
                   "touchpad-attempted": { $avg: '$touchpad-attempted' },
                   
                   "auto-drop-gears": { $avg: '$auto-drop-gears' },
-                  "teleop-drop-gears": { $avg: '$teleop-drop-gears' },
-                  
-                  "do-not-pick": { $avg: '$do-not-pick' }
+                  "teleop-drop-gears": { $avg: '$teleop-drop-gears' }
               }
           }
         ]).toArray(function(err, matches) {
             callback([
                 {
                     name: "Team Averages",
-                    cols: [2,3,4,5,6,7,8,9,10,11,12,13],
+                    cols: [2,3,4,5,6,7,8,9,10,11,12],
                     headers: [
                         {
                             text: "Team", 
@@ -237,10 +222,6 @@ module.exports = {
                         {
                             text: "Pressed Touchpad",
                             value: "touchpad"
-                        },
-                        {
-                            text: "Do Not Pick", 
-                            value: "do-not-pick"	
                         }
                     ],
                     data: matches
