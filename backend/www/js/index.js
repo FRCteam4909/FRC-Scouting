@@ -92,7 +92,7 @@ function loadData(index) {
                                 scaledVal = scaleBetween(cellVal, 0, 1, min[colIndex], max[colIndex]);
                             else
                                 scaledVal = 0.6;
-
+                        /*
                         console.log(rowIdx);
                         console.log(col);
                         console.log(cellVal);
@@ -100,6 +100,7 @@ function loadData(index) {
                         console.log(max[colIndex]);
                         console.log(scaledVal);
                         console.log("=====");
+                        */
 
                         if(scaledVal > 0.5)
                             $(cell).css('background-color', 'rgba(76, 217, 100,' + (0.1 + (0.8 * scaledVal)) + ')');
