@@ -1,6 +1,19 @@
 module.exports = {
 	views: [{
-		"name": "Team Profile",
+		"name": "Match Strategy Profile",
+		"views": [
+            {
+                "name": "teamAverages",
+                "disableInfo": true,
+                "disablePaging": true
+            },
+            {
+                "name": "comments",
+                "lengthMenu": [ [10, 25, 50, 100, -1], [10, 25, 50, 100, "All"] ]
+            }
+        ]
+	},{
+		"name": "Pick List Profile",
 		"views": [
             {
                 "name": "teamAverages",
@@ -199,20 +212,20 @@ module.exports = {
                             value: "auto-low-kPa"
                         },
                         {
-                            text: "Auto. High Goal kPa",
-                            value: "auto-high-kPa"
-                        },
-                        {
-                            text: "Auto. Gears Placed",
-                            value: "auto-gears"
-                        },
-                        {
                             text: "Teleop. Low Goal kPa",
                             value: "teleop-low-kPa"
                         },
                         {
+                            text: "Auto. High Goal kPa",
+                            value: "auto-high-kPa"
+                        },
+                        {
                             text: "Teleop. High Goal kPa",
                             value: "teleop-high-kPa"
+                        },
+                        {
+                            text: "Auto. Gears Placed",
+                            value: "auto-gears"
                         },
                         {
                             text: "Teleop. Gears Placed",
@@ -223,7 +236,7 @@ module.exports = {
                             value: "touchpad"
                         },
                         {
-                            text: "Touchpad Success Rate",
+                            text: "Climber Success Rate",
                             value: "touchpad-success"
                         }
                     ],
