@@ -206,6 +206,21 @@ module.exports = {
                    ]
                }
              }
+          },
+          {
+             $addFields: {
+               "auto-low-kPa": { "$divide": [ { "$trunc": { "$multiply": ["$auto-low-kPa", 20] } }, 20] },
+               "teleop-low-kPa": { "$divide": [ { "$trunc": { "$multiply": ["$teleop-low-kPa", 20] } }, 20] },
+               "auto-high-kPa": { "$divide": [ { "$trunc": { "$multiply": ["$auto-high-kPa", 20] } }, 20] },
+               "teleop-high-kPa": { "$divide": [ { "$trunc": { "$multiply": ["$teleop-high-kPa", 20] } }, 20] },
+               "auto-gears": { "$divide": [ { "$trunc": { "$multiply": ["$auto-gears", 20] } }, 20] },
+               "teleop-gears": { "$divide": [ { "$trunc": { "$multiply": ["$teleop-gears", 20] } }, 20] },
+               "auto-drop-gears": { "$divide": [ { "$trunc": { "$multiply": ["$auto-drop-gears", 20] } }, 20] },
+               "teleop-drop-gears": { "$divide": [ { "$trunc": { "$multiply": ["$teleop-drop-gears", 20] } }, 20] },
+               "touchpad": { "$divide": [ { "$trunc": { "$multiply": ["$touchpad", 20] } }, 20] },
+               "touchpad-attempted": { "$divide": [ { "$trunc": { "$multiply": ["$touchpad-attempted", 20] } }, 20] },
+               "touchpad-success": { "$divide": [ { "$trunc": { "$multiply": ["$touchpad-success", 20] } }, 20] }
+             }
           }
         ]).toArray(function(err, matches) {
             callback([
