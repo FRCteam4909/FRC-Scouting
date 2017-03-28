@@ -58,6 +58,10 @@ module.exports = {
         ]
 	},],
 	
+    tableViews: {
+        
+    },
+    
 	matches: function (mongoCollection, callback) {
 		mongoCollection
 			.find({"competition": 2017})
