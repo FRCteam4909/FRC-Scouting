@@ -5,3 +5,15 @@ th:first-letter {
 .dataTables_filter {
     display: none;
 }
+
+.navbar {
+    background-color: #4caf50 !important;
+}
+
+.nav-sidebar > .active > a, .nav-sidebar > .active > a:hover, .nav-sidebar > .active > a:focus {
+    background-color: #8bc34a !important;
+}
+
+.navbar * {
+    color: white !important
+}
