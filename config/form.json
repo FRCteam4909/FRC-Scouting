@@ -136,9 +136,6 @@
                     "type": "textarea",
                     "label": "Comments",
                     "id": "comments"
-                },
-                {
-                    "type": "divider"
                 }
             ]
         }
@@ -161,7 +158,6 @@
         "touchpad-attempted": "checkbox:#touchpad-attempted",
         "touchpad": "checkbox:#touchpad",
 
-        "comments": "text:#comments",
-        "do-not-pick": "checkbox:#dnp-list"
+        "comments": "text:#comments"
     }
 }
