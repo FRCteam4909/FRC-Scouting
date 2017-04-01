@@ -139,12 +139,6 @@
                 },
                 {
                     "type": "divider"
-                },
-                {
-                    "type": "checkbox",
-                    "label": "Add to Do Not Pick List",
-                    "id": "dnp-list",
-                    "onchange": ""
                 }
             ]
         }
