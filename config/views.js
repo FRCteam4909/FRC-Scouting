@@ -310,7 +310,11 @@ module.exports = {
                             value: "total-gears"
                         },
                         {
-                            text: "Max Gears Placed",
+                            text: "Avg. Auto Gears Placed",
+                            value: "auto-gears"
+                        },
+                        {
+                            text: "Max. Gears Placed",
                             value: "total-max-gears"
                         },
                         {
