@@ -125,7 +125,7 @@ function searchColumn(col, value){
     else
         $.fn.dataTable.tables( { api: true } )
             .columns(col)
-                .search("^" + value + "$", true, false, true)
+                .search("^" + value.replace(/\|/g, '$|^') + "$", true, false, true)
                 .draw();
 }
 
