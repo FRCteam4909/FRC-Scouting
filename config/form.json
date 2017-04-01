@@ -12,12 +12,6 @@
                     "max": 6700
                 },
                 {
-                    "type": "checkbox",
-                    "label": "Crossed Baseline",
-                    "id": "baseline",
-                    "onchange": ""
-                },
-                {
                     "type": "divider"
                 },
                 {
