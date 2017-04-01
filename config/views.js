@@ -9,31 +9,16 @@ module.exports = {
                 "colorcode": true
             },
             {
+                "name": "matches",
+                "lengthMenu": [ [10, 25, 50, 100, -1], [10, 25, 50, 100, "All"] ]
+            },
+            {
                 "name": "comments",
                 "lengthMenu": [ [10, 25, 50, 100, -1], [10, 25, 50, 100, "All"] ]
             }
         ]
 	},{
-		"name": "Team Averages",
-		"views": [
-            {
-                "name": "teamAverages",
-                "disableInfo": true,
-                "disablePaging": true,
-                "colorcode": true
-            }
-        ]
-	},{
-		"name": "Match Comments",
-		"views": [
-            {
-                "name": "comments",
-                "disableInfo": true,
-                "disablePaging": true
-            }
-        ]
-	},{
-		"name": "Overall Team Profile",
+		"name": "Alliance Selection Profile",
 		"views": [
             {
                 "name": "teamAverages",
