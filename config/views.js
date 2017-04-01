@@ -291,7 +291,7 @@ module.exports = {
             callback([
                 {
                     name: "Match Strategy Averages",
-                    cols: [2,3,4,5,6,7],
+                    cols: [2,3,4,5,6,7,8],
                     headers: [
                         {
                             text: "Team", 
@@ -328,6 +328,62 @@ module.exports = {
                         {
                             text: "Avg. kPa",
                             value: "total-kPa"
+                        }
+                    ],
+                    data: matches
+                }
+            ]);
+            
+            db.close();
+        });
+	},
+    
+    selecAverages: function (mongoCollection, callback) {
+        mongoCollection.aggregate(this.query).toArray(function(err, matches) {
+            callback([
+                {
+                    name: "Alliance Selection Averages",
+                    cols: [2,3,4,5,6,7,8,9],
+                    headers: [
+                        {
+                            text: "Team", 
+                            value: "team"	
+                        },
+                        {
+                            text: "Event", 
+                            value: "event"	
+                        },
+                        {
+                            text: "Avg. Score",
+                            value: "total-score"
+                        },
+                        {
+                            text: "Avg. Gears Placed",
+                            value: "total-gears"
+                        },
+                        {
+                            text: "Avg. Auto Gears Placed",
+                            value: "auto-gears"
+                        },
+                        {
+                            text: "Max. Gears Placed",
+                            value: "total-max-gears"
+                        },
+                        {
+                            text: "Climb Avg. / Match",
+                            value: "touchpad"
+                        },
+                        {
+                            text: "Climb Avg. / Attempt",
+                            value: "touchpad-success"
+                        },
+                        {
+                            text: "Avg. kPa",
+                            value: "total-kPa"
+                        },
+                        {
+                            text: "Avg. Gears Dropped",
+                            value: "total-drop-gears"
                         }
                     ],
                     data: matches
