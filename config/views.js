@@ -66,7 +66,7 @@ module.exports = {
               "teleop-high-kPa": { $avg: '$teleop-high-kPa' },
 
               "auto-gears": { $avg: '$auto-gears' },
-              "auto-place-gears": { $avg: '$auto-place-gears' },
+              "auto-place-gears": { $avg: '$auto-place-gear' },
               
               "teleop-gears": { $avg: '$teleop-gears' },
 
