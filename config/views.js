@@ -83,9 +83,9 @@ module.exports = {
          $addFields: {
             "auto-gears":{
                 $cond: [
-                   { "$gt": ["$auto-place-gears", 0] },
-                   "$auto-place-gears",
-                   "$auto-gears"
+                   { "$gt": ["$auto-gears", 0] },
+                   "$auto-gears",
+                   "$auto-place-gears"
                ]
             },
            "touchpad-success": {
@@ -113,6 +113,13 @@ module.exports = {
       },
       {
          $addFields: {
+            "auto-gears":{
+                $cond: [
+                   { "$gt": ["$auto-gears", 0] },
+                   "$auto-gears",
+                   0
+               ]
+            },
            "total-gears-score": {
                 "$multiply": [
                     { "$sum": ["$auto-gears", "$teleop-gears"] },
