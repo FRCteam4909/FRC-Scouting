@@ -32,26 +32,26 @@
                                 {
                                     "type": "checkbox",
                                     "label": "Attempted Center Gear",
-                                    "id": "auto-gear",
-                                    "onchange": ""
+                                    "id": "auto-center-gear",
+                                    "onchange": "if($(this).is(':checked')) $('#auto-boiler-gear, #auto-human-player-gear').prop('checked', false);"
                                 },
                                 {
                                     "type": "checkbox",
                                     "label": "Attempted Boiler Gear",
                                     "id": "auto-boiler-gear",
-                                    "onchange": ""
+                                    "onchange": "if($(this).is(':checked')) $('#auto-center-gear, #auto-human-player-gear').prop('checked', false);"
                                 },
                                 {
                                     "type": "checkbox",
-                                    "label": "Attempted Human Player Gear",
+                                    "label": "Attempted Human Player Station Gear",
                                     "id": "auto-human-player-gear",
-                                    "onchange": ""
+                                    "onchange": "if($(this).is(':checked')) $('#auto-center-gear, #auto-boiler-gear').prop('checked', false);"
                                 },
                                 {
                                     "type": "checkbox",
                                     "label": "Placed Gear",
                                     "id": "auto-place-gear",
-                                    "onchange": ""
+                                    "onchange": "if($(this).is(':checked') && !($('#auto-center-gear').is(':checked') || $('#auto-boiler-gear').is(':checked') || $('#auto-human-player-gear').is(':checked'))) $(this).prop('checked', false);"
                                 }
                              ]
                         },
@@ -166,7 +166,7 @@
         "auto-low-kPa": "incr:#auto-low-kPa",
         "auto-high-kPa": "incr:#auto-high-kPa",
         
-        "auto-gears": "checkbox:#auto-gear",
+        "auto-center-gear": "checkbox:#auto-center-gear",
         "auto-boiler-gear": "checkbox:#auto-boiler-gear",
         "auto-human-player-gear": "checkbox:#auto-human-player-gear",
         "auto-place-gear": "checkbox:#auto-place-gear",
