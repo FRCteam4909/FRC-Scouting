@@ -42,10 +42,19 @@
             {{#equal type "divider"}}
                 <div class="list-group-title">{{label}}</div>
             {{/equal}}
-            {{#equal type "grid"}}
+            {{#equal type "grid2col"}}
                 <div class="row">
                     {{#each cols}}
                         <div class="col-50">
+                            {{#formtemplate this}}{{/formtemplate}}
+                        </div>
+                    {{/each}}      
+                </div>
+            {{/equal}}
+            {{#equal type "grid4col"}}
+                <div class="row">
+                    {{#each cols}}
+                        <div class="col-25">
                             {{#formtemplate this}}{{/formtemplate}}
                         </div>
                     {{/each}}      
