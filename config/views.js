@@ -192,8 +192,21 @@ module.exports = {
     
 	matches: function (mongoCollection, callback) {
 		mongoCollection
-			.find({"competition": 2017})
-			.sort({"_id": -1})
+			.aggregate([ {
+         $addFields: {
+            "auto-place-gear":{
+                $cond: [
+                   { "$gt": ["$auto-place-gear", 0] },
+                   "$auto-place-gear",
+                   {$cond: [
+                       { "$gt": ["$auto-gears", 0] },
+                       "$auto-gears",
+                       0
+                   ]}
+               ]
+            }
+         }
+      }, {$sort:{"_id": -1}}])
 			.toArray(function (err, matches) {
 				callback([
 					{
