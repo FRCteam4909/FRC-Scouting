@@ -66,6 +66,8 @@ module.exports = {
               "teleop-high-kPa": { $avg: '$teleop-high-kPa' },
 
               "auto-gears": { $avg: '$auto-gears' },
+              "auto-place-gears": { $avg: '$auto-place-gears' },
+              
               "teleop-gears": { $avg: '$teleop-gears' },
 
               "auto-max-gears": { $max: '$auto-gears' },
@@ -79,7 +81,14 @@ module.exports = {
       },
       {
          $addFields: {
-           "touchpad-success": { 
+            "auto-gears":{
+                $cond: [
+                   { "$gt": ["$auto-place-gears", 0] },
+                   "$auto-place-gears",
+                   "$auto-gears"
+               ]
+            },
+           "touchpad-success": {
                $cond: [
                    { "$eq": ["$touchpad", 0] },
                    0, 
