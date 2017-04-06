@@ -71,7 +71,6 @@ module.exports = {
               "auto-max-gears": { $max: '$auto-gears' },
               "teleop-max-gears": { $max: '$teleop-gears' },
 
-              "auto-drop-gears": { $avg: '$auto-drop-gears' },
               "teleop-drop-gears": { $avg: '$teleop-drop-gears' },
 
               "touchpad": { $avg: '$touchpad' },
@@ -122,9 +121,6 @@ module.exports = {
            "total-max-gears": { "$sum": [
                 "$auto-max-gears", "$teleop-max-gears"
            ]},
-           "total-drop-gears": { "$sum": [
-                "$auto-drop-gears", "$teleop-drop-gears"
-           ]},
          }
       },
       {
@@ -149,9 +145,7 @@ module.exports = {
            "total-kPa": { "$divide": [ { "$trunc": { "$multiply": ["$total-kPa", 20] } }, 20] },
            "auto-gears": { "$divide": [ { "$trunc": { "$multiply": ["$auto-gears", 20] } }, 20] },
            "teleop-gears": { "$divide": [ { "$trunc": { "$multiply": ["$teleop-gears", 20] } }, 20] },
-           "auto-drop-gears": { "$divide": [ { "$trunc": { "$multiply": ["$auto-drop-gears", 20] } }, 20] },
            "teleop-drop-gears": { "$divide": [ { "$trunc": { "$multiply": ["$teleop-drop-gears", 20] } }, 20] },
-           "total-drop-gears": { "$divide": [ { "$trunc": { "$multiply": ["$total-drop-gears", 20] } }, 20] },
            "auto-success-gears": { "$divide": [ { "$trunc": { "$multiply": ["$auto-drop-gears", 20] } }, 20] },
            "teleop-success-gears": { "$divide": [ { "$trunc": { "$multiply": ["$teleop-drop-gears", 20] } }, 20] },
            "total-gears-score": { "$divide": [ { "$trunc": { "$multiply": ["$total-gears-score", 20] } }, 20] },
@@ -171,7 +165,7 @@ module.exports = {
               "auto-gears": 1, // Avg. Auto Gears / Match
               "total-gears": 1, // Avg. Gears / Match
               "total-max-gears": 1, // Max. Gears / Match
-              "total-drop-gears": 1, // Dropped Gears / Match
+              "teleop-drop-gears": 1, // Dropped Gears / Match
               "total-kPa": 1, // Avg. kPa / Match
               "touchpad": 1, // Avg. Climb / Match
               "touchpad-success": 1, // Avg. Climb / Attempt
@@ -383,7 +377,7 @@ module.exports = {
                         },
                         {
                             text: "Avg. Gears Dropped",
-                            value: "total-drop-gears"
+                            value: "teleop-drop-gears"
                         }
                     ],
                     data: matches
