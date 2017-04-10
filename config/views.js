@@ -128,7 +128,7 @@ module.exports = {
            },
 
            "total-kPa": { "$sum": [
-                "$auto-low-kPa", "$teleop-low-kPa","$auto-high-kPa","teleop-high-kPa"
+                "$auto-low-kPa", "$teleop-low-kPa","$auto-high-kPa","$teleop-high-kPa"
            ]},
 
            "total-gears": { "$sum": [
