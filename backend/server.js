@@ -33,11 +33,11 @@ function pollForNewData(devices) {
                 const form = fs.readFileSync(expandHomeDir("~/FRC-Scouting/config/form.json")),
                       template = fs.readFileSync(expandHomeDir("~/FRC-Scouting/backend/templates/form-template.html")),
                       pageTemplate = fs.readFileSync(expandHomeDir("~/FRC-Scouting/backend/templates/page-template.html"));
-                /*
+                
                 fs.writeFileSync(expandHomeDir(config.send_directory) + "form.json", form);
                 fs.writeFileSync(expandHomeDir(config.send_directory) + "form-template.html", template);
                 fs.writeFileSync(expandHomeDir(config.send_directory) + "page-template.html", pageTemplate);
-                */
+                
 
                 // Loop Through All Unread Files
                 fs.readdirSync(
