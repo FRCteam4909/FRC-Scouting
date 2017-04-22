@@ -1,2 +1,2 @@
-export PATH=$PATH:/usr/lib/android-sdk/tools
-export ANDROID_HOME=$ANDROID_HOME:/usr/lib/android-sdk
+export ANDROID_HOME=$HOME/sdk
+export PATH=${PATH}:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$ANDROID_HOME/build-tools/22.0.1/
