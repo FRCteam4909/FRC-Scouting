@@ -1,6 +1,6 @@
 ## Server Usage
 
-### Start BlueTooth File Server (OBEX) in ESFileExplorer on every tablet
+### Start BlueTooth File Server (OBEX) in the ESFileExplorer App on every tablet
 - Deny discoverable request, and leave running in the background to facilitate data transfer
 - This may have to be restarted over prolonged durations of time, especially after breaks.
 
