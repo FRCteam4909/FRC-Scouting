@@ -10,8 +10,8 @@ The aim of this project is to gather match data from the team's Android tablets 
 - Issues/Wiki
 
 ## Documentation
-- [Details on Installation and Configuration on a Host Machine](./INSTALL.md)
-- [Using the Scouting System in a VM/Host Machine](./USAGE.md)
+- [Details on Installation and Configuration](./INSTALL.md)
+- [Using the Scouting System](./USAGE.md)
 
 ## Issues
 Please create a GitHub issue for any bugs or feature requests.
