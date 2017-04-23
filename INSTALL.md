@@ -39,7 +39,7 @@ The file should look like this when correctly edited, all the devices MAC addres
 Install [ESFileExplorer](https://www.amazon.com/ES-File-Explorer-Manager/dp/B008K6HN8I/ref=sr_1_1?ie=UTF8&qid=1492648918&sr=8-1&keywords=esfile+explorer+app) on each of the tablets from the Amazon Marketplace.
 
 ## Put the Tablets into Developer Mode
-The tablets must be in developer mode. This can be enabled by clicking the serial number in the settings panes seven times. After that, ADB must be enabled under the newly available developer options.
+The tablets must be in developer mode for installation of the TGA app. This can be enabled by clicking the serial number in the settings panes seven times. After that, ADB must be enabled under the newly available developer options.
 
 ## Install TGA App on the Tablets
 Run this command in the terminal, with an individual device plugged in via USB.
