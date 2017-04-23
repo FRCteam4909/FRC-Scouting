@@ -1,8 +1,8 @@
 ## Server Usage
 
-### Start BlueTooth File Server (OBEX) in ESFileExplorer on each tablet
+### Start BlueTooth File Server (OBEX) in ESFileExplorer on every tablet
 - Deny discoverable request, and leave running in the background to facilitate data transfer
-- This may have to be restarted over prolonged durations of time.
+- This may have to be restarted over prolonged durations of time, especially after breaks.
 
 ### Run Server on Laptop
 - Run the following command in the Ubuntu terminal, replacing the event key with the correct key.
