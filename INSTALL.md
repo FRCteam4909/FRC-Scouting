@@ -40,4 +40,5 @@ Install [ESFileExplorer](https://www.amazon.com/ES-File-Explorer-Manager/dp/B008
 
 ## Install TGA App on the Tablets
 Run this command in the terminal, with an individual device plugged in via USB. The tablet must be in developer mode. This can be enabled by clicking the serial number in the settings panes numerous times. After that, ADB must be enabled under the newly available developer options.
+
 ```cd ~/The-Green-Alliance && cordova run android --device```
