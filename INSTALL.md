@@ -38,7 +38,10 @@ The file should look Like this, all the devices MAC addresses can be found under
 ## Install Bluetooth Transfer Utility
 Install [ESFileExplorer](https://www.amazon.com/ES-File-Explorer-Manager/dp/B008K6HN8I/ref=sr_1_1?ie=UTF8&qid=1492648918&sr=8-1&keywords=esfile+explorer+app) on each of the tablets from the Amazon Marketplace.
 
+## Put the Tablets into Developer Mode
+The tablets must be in developer mode. This can be enabled by clicking the serial number in the settings panes seven times. After that, ADB must be enabled under the newly available developer options.
+
 ## Install TGA App on the Tablets
-Run this command in the terminal, with an individual device plugged in via USB. The tablet must be in developer mode. This can be enabled by clicking the serial number in the settings panes numerous times. After that, ADB must be enabled under the newly available developer options.
+Run this command in the terminal, with an individual device plugged in via USB.
 
 ```cd ~/The-Green-Alliance && cordova run android --device```
